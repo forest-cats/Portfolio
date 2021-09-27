@@ -1,0 +1,15 @@
+body {
+	border: 1px solid #000000;
+}
+header {
+	border: 1px solid #ff0000;
+}
+section {
+	border: 1px solid #0011ff;
+}
+div {
+	border: 1px solid #00ff37;
+}
+footer {
+	border: 1px solid #ff0000;
+}
