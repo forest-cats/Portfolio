@@ -1,0 +1,379 @@
+
+/*---------------- あとで消す：ここから ----------------*/
+// body {
+// 	border: 1px solid #ffffff;
+// 	color: #ffffff;
+// }
+// header {
+// 	border: 1px solid #ff0000;
+// 	color: #ffffff;
+// }
+// section {
+// 	border: 1px solid #0011ff;
+// 	color: #ffffff;
+// }
+// div {
+// 	border: 1px solid #00ff37;
+// 	color: #ffffff;
+// }
+// footer {
+// 	border: 1px solid #ff0000;
+// 	color: #ffffff;
+// }
+// dl,dt,dd {
+// 	border: 1px solid #ffff00;
+// 	color: #ffffff;
+// }
+/*---------------- あとで消す：END ----------------*/
+
+
+/*---------------- カラー設定 ----------------*/
+$black: #000000;
+// $black: #212121;
+$white: #FFFFFF;
+// $silver: #90A4AE;//元の色
+$silver: #afafb0;
+$silver-bg: #dcdddd;
+$red: #FF0000;
+$wine: #990000;
+
+// $background: #000000;
+// $main: #990000;
+// $main-sub: #90A4AE;
+
+// $nav-hover: #ff0000;
+
+// $main-pc: #90A4AE;
+// $nav-hover-pc: #990000;
+// $nav-accent: #ff33ff;
+.red {
+	color: $red;
+}
+/*---------------- カラー設定：END ----------------*/
+
+
+
+/*---------------- フォント設定 ----------------*/
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap');
+$font-en: 'Alex Brush', cursive;
+$font-ja: 'Sawarabi Mincho';
+/*---------------- フォント設定：END ----------------*/
+
+/*---------------- レスポンシブ ：END ----------------*/
+body {
+	width: 90%;
+	margin: 0 auto;
+}
+section {
+	h2 {
+		font-size: 4em;
+		padding: 10px;
+		margin: 0 auto;
+	}
+}
+
+.section__contents {
+	display: flex;
+	justify-content: center;
+	dl {
+		margin-top: 40px;
+		margin-bottom: 80px;
+		width: 28%;
+		margin: 40px 40px 70px 0;
+		&:last-child {
+			margin-right: 0;
+		}
+		dt {
+			font-size: 2em;
+			padding: 10px 10px 5px;
+			letter-spacing: 2px;
+		}
+		dd {
+			padding: 10px;
+			div img {
+				max-width: 300px;
+				max-height: auto;
+			}
+			.btn-more {
+				margin-top: 20px;
+				display: block;
+			}
+			ul {
+				min-height: 50px;
+			}
+		}
+	}
+}
+
+.section__contents-form {
+	border-radius: 15px;
+	max-width: 600px;
+	margin: 40px auto;
+	padding: 20px;
+	.contents-form__style {
+		display: flex;
+		flex-wrap: wrap;
+		dt {
+			text-align: left;
+			padding: 10px 5px;
+			width: 30%;
+			margin-bottom: 20px;
+		}
+		dd {
+			text-align: left;
+			padding: 5px 0;
+			width: 70%;
+			margin-bottom: 20px;
+		}
+	}
+	input[type="text"],
+	textarea {
+		width: 100%;
+		height: 100%;
+		padding: 5px;
+		&::placeholder {
+			color: $silver;
+		}
+	}
+	.form-style__message {
+		textarea {
+			height: 140px;
+		}
+	}
+	// 送信ボタン
+	.form-style__submit {
+		.btn-contact {
+			width: 100px;
+			margin: 0 auto;
+			display: block;
+		}
+	}
+}
+
+footer {
+	padding: 10px;
+	ul {
+		margin: 20px auto;
+		display: flex;
+		justify-content: center;
+		li {
+			font-family: $font-ja;
+			width: 80px;
+			text-align: center;
+		}
+	}
+}
+
+
+/*------------------------------------------
+Responsive Grid Media Queries - 1280, 1024, 768, 480
+1280-1024：デスクトップ（デフォルトのグリッド）
+1024-768：タブレット横長
+768-480：タブレット縦長
+480-less：スマホ
+--------------------------------------------*/
+// PC
+@media all and (min-width: 1024px) and (max-width: 1280px) {
+
+}
+// タブレット横長
+@media all and (min-width: 768px) and (max-width: 1024px) {
+
+}
+// タブレット縦長
+@media all and (min-width: 480px) and (max-width: 768px) {
+
+}
+// タブレット縦長＆スマホ
+@media all and (max-width: 1024px)  {
+	section {
+		h2 {
+			font-size: 3em;
+			padding: 8px;
+			margin: 0 auto;
+		}
+		.section__contents {
+			display: block;
+			dl {
+				margin: 20px auto;
+				width: 80%;
+				&:last-child {
+					margin: 0 auto 40px;
+				}
+			}
+		}
+	}
+
+	.section__contents-form {
+		width: 95%;
+		margin: 20px auto;
+		.contents-form__style {
+			display: block;
+			dt {
+				font-size: 0.8em;
+				text-align: center;
+				padding: 5px 0;
+				width: 100%;
+				margin-bottom: 0;
+			}
+			dd {
+				font-size: 0.8em;
+				padding: 0;
+				width: 100%;
+				margin-bottom: 10px;
+			}
+		}
+		.form-style__message {
+			textarea {
+				height: 140px;
+			}
+		}
+	}
+
+	footer {
+		ul {
+			li {
+				min-width: 50px;
+			}
+		}
+	}
+}
+
+// スマホのみ
+@media all and (max-width: 480px) {
+	section {
+		h2 {
+			font-size: 2em;
+			padding: 5px;
+			margin: 0 auto;
+		}
+		.section__contents-form {
+			width: 95%;
+			border-radius: 10px;
+			padding: 20px 5px;
+		}
+	}
+}
+/*---------------- レスポンシブ ：END ----------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+/*---------------- カラー＆詳細設定：END ----------------*/
+body {
+	background-color: $black;
+}
+
+header {
+	font-family: $font-en;
+}
+
+section {
+	h2 {
+		color: $wine;
+		border-top: 1px solid $wine;
+		border-bottom: 1px solid $wine;
+		font-family: $font-en;
+		text-align: center;
+	}
+	dl {
+		dt {
+			color: $wine;
+			font-family: $font-en;
+			text-align: center;
+		}
+		dd {
+			color: $silver;
+			font-family: $font-ja;
+		}
+	}
+}
+
+// Contact
+.section__contents-form {
+	background:  $silver-bg;
+	border: 1px solid $wine;
+	.contents-form__style {
+		dt {
+			display: flex;
+			align-items: center;
+			font-family: $font-ja;
+			color: $black;
+			.tag-required {
+				background-color: $red;
+				border-radius: 5px;
+				color: $white;
+				font-size: 0.3em;
+				font-weight: bold;
+				padding: 1px 3px;
+				margin-right: 5px;
+			}
+		}
+		dd {
+			input[type="text"],
+			textarea {
+				background: $white;
+				color: $black;
+			}
+		}
+	}
+
+	// 送信ボタン
+	.form-style__submit {
+		.btn-contact {
+			border: 1px solid $red;
+			text-align: center;
+		}
+	}
+}
+
+footer {
+	color: $silver;
+	font-family: $font-ja;
+	.copyright {
+		color: $white;
+		font-family: $font-ja;
+		font-size: 0.1em;
+		text-align: center;
+	}
+}
+
+// ボタン
+.btn-more {
+	color: $silver;
+	border: 1px solid $wine;
+	font-family: $font-en;
+	font-size: 1.5em;
+	margin: 0 auto;
+	padding: 5px 20px;
+}
+/*---------------- カラー＆詳細設定：END ----------------*/
+
+/*---------------- 画像 ----------------*/
+@mixin img-style($img-pass) {
+	background: url($img-pass) no-repeat center center;
+	background-size: contain;
+	width: 200px;
+	height: 200px;
+	margin: 0 auto;
+}
+// about
+.img-about__study {@include img-style("../img/about/poisonsnake.jpg");}
+.img-about__work {@include img-style("../img/about/poisonsnake.jpg");}
+.img-about__shool {@include img-style("../img/about/poisonsnake.jpg");}
+// skill
+.img-skill__lang {@include img-style("../img/skill/poisonsnake.jpg");}
+.img-skill__study {@include img-style("../img/skill/poisonsnake.jpg");}
+.img-skill__tool {@include img-style("../img/skill/poisonsnake.jpg");}
+// works
+.img-works__work {@include img-style("../img/works/poisonsnake.jpg");}
+.img-works__portfolio {@include img-style("../img/works/poisonsnake.jpg");}
+.img-works__shool {@include img-style("../img/works/poisonsnake.jpg");}
