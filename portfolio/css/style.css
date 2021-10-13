@@ -2,22 +2,64 @@
 /*---------------- あとで消す：ここから ----------------*/
 /*---------------- あとで消す：END ----------------*/
 /*---------------- カラー設定 ----------------*/
-@import url("https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap");
-.red {
-  color: #FF0000;
-}
-
 /*---------------- カラー設定：END ----------------*/
 /*---------------- フォント設定 ----------------*/
+@import url("https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap");
 /*---------------- フォント設定：END ----------------*/
 /*---------------- レスポンシブ ：END ----------------*/
 body {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
 }
 
-section h2 {
+body section {
+  width: 95%;
+  margin: 0 auto;
+}
+
+header {
+  margin: 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+header .header__site-name {
+  margin: 20px 0 0;
+}
+
+header .header__site-name h1 {
   font-size: 4em;
+}
+
+header .header__nav .header__nav-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .header__nav .header__nav-list li {
+  margin-right: 20px;
+  padding: 10px 15px;
+  width: 120px;
+}
+
+header .header__nav .header__nav-list li .nav-en {
+  font-size: 2em;
+}
+
+header .header__nav .header__nav-list li .nav-ja {
+  font-size: 0.8em;
+}
+
+section .section__title {
+  font-size: 3em;
   padding: 10px;
   margin: 0 auto;
 }
@@ -35,41 +77,40 @@ section h2 {
   margin-top: 40px;
   margin-bottom: 80px;
   width: 28%;
-  margin: 40px 40px 70px 0;
+  margin: 60px 60px 70px 0;
 }
 
 .section__contents dl:last-child {
   margin-right: 0;
 }
 
-.section__contents dl dt {
-  font-size: 2em;
+.section__contents dl .section__contents-title {
+  font-size: 2.5em;
   padding: 10px 10px 5px;
   letter-spacing: 2px;
 }
 
-.section__contents dl dd {
+.section__contents dl .section__contents-details {
   padding: 10px;
 }
 
-.section__contents dl dd div img {
-  max-width: 300px;
-  max-height: auto;
+.section__contents dl .section__contents-details p {
+  text-align: center;
 }
 
-.section__contents dl dd .btn-more {
+.section__contents dl .section__contents-details .btn-more {
   margin-top: 20px;
   display: block;
 }
 
-.section__contents dl dd ul {
+.section__contents dl .section__contents-details ul {
   min-height: 50px;
 }
 
 .section__contents-form {
   border-radius: 15px;
   max-width: 600px;
-  margin: 40px auto;
+  margin: 60px auto;
   padding: 20px;
 }
 
@@ -133,7 +174,7 @@ section h2 {
 }
 
 footer {
-  padding: 10px;
+  padding: 0 10px 10px;
 }
 
 footer ul {
@@ -160,7 +201,16 @@ footer ul li {
 480-less：スマホ
 --------------------------------------------*/
 @media all and (max-width: 1024px) {
-  section h2 {
+  header .header__site-name {
+    margin: 10px 0 0 0;
+  }
+  header .header__site-name h1 {
+    font-size: 3em;
+  }
+  header .header__nav {
+    display: none;
+  }
+  section .section__title {
     font-size: 3em;
     padding: 8px;
     margin: 0 auto;
@@ -175,9 +225,12 @@ footer ul li {
   section .section__contents dl:last-child {
     margin: 0 auto 40px;
   }
+  section .section__contents dl .section__contents-details ul li {
+    text-align: center;
+  }
   .section__contents-form {
     width: 95%;
-    margin: 20px auto;
+    margin: 40px auto;
   }
   .section__contents-form .contents-form__style {
     display: block;
@@ -204,7 +257,13 @@ footer ul li {
 }
 
 @media all and (max-width: 480px) {
-  section h2 {
+  header .header__site-name {
+    margin: 5px 0 0 0;
+  }
+  header .header__site-name h1 {
+    font-size: 2em;
+  }
+  section .section__title {
     font-size: 2em;
     padding: 5px;
     margin: 0 auto;
@@ -223,10 +282,29 @@ body {
 }
 
 header {
+  color: #afafb0;
+}
+
+header .header__site-name {
   font-family: "Alex Brush", cursive;
 }
 
-section h2 {
+header .header__nav .header__nav-list li {
+  border-top: 1px solid #990000;
+  border-bottom: 1px solid #990000;
+}
+
+header .header__nav .header__nav-list li .nav-en {
+  font-family: "Alex Brush", cursive;
+  text-align: center;
+}
+
+header .header__nav .header__nav-list li .nav-ja {
+  font-family: "Sawarabi Mincho";
+  text-align: center;
+}
+
+section .section__title {
   color: #990000;
   border-top: 1px solid #990000;
   border-bottom: 1px solid #990000;
@@ -234,19 +312,19 @@ section h2 {
   text-align: center;
 }
 
-section dl dt {
+section dl .section__contents-title {
   color: #990000;
   font-family: "Alex Brush", cursive;
   text-align: center;
 }
 
-section dl dd {
+section dl .section__contents-details {
   color: #afafb0;
   font-family: "Sawarabi Mincho";
 }
 
 .section__contents-form {
-  background: #dcdddd;
+  background: #111111;
   border: 1px solid #990000;
 }
 
@@ -258,7 +336,7 @@ section dl dd {
       -ms-flex-align: center;
           align-items: center;
   font-family: "Sawarabi Mincho";
-  color: #000000;
+  color: #FFFFFF;
 }
 
 .section__contents-form .contents-form__style dt .tag-required {
@@ -285,6 +363,7 @@ section dl dd {
 footer {
   color: #afafb0;
   font-family: "Sawarabi Mincho";
+  border-top: 1px solid #afafb0;
 }
 
 footer .copyright {
@@ -305,24 +384,8 @@ footer .copyright {
 
 /*---------------- カラー＆詳細設定：END ----------------*/
 /*---------------- 画像 ----------------*/
-.img-about__study {
-  background: url("../img/about/poisonsnake.jpg") no-repeat center center;
-  background-size: contain;
-  width: 200px;
-  height: 200px;
-  margin: 0 auto;
-}
-
-.img-about__work {
-  background: url("../img/about/poisonsnake.jpg") no-repeat center center;
-  background-size: contain;
-  width: 200px;
-  height: 200px;
-  margin: 0 auto;
-}
-
-.img-about__shool {
-  background: url("../img/about/poisonsnake.jpg") no-repeat center center;
+.img-about__me {
+  background: url("../img/about/me.jpg") no-repeat center center;
   background-size: contain;
   width: 200px;
   height: 200px;
@@ -330,7 +393,7 @@ footer .copyright {
 }
 
 .img-skill__lang {
-  background: url("../img/skill/poisonsnake.jpg") no-repeat center center;
+  background: url("../img/skill/lang.jpg") no-repeat center center;
   background-size: contain;
   width: 200px;
   height: 200px;
@@ -338,7 +401,7 @@ footer .copyright {
 }
 
 .img-skill__study {
-  background: url("../img/skill/poisonsnake.jpg") no-repeat center center;
+  background: url("../img/skill/study.jpg") no-repeat center center;
   background-size: contain;
   width: 200px;
   height: 200px;
@@ -346,7 +409,7 @@ footer .copyright {
 }
 
 .img-skill__tool {
-  background: url("../img/skill/poisonsnake.jpg") no-repeat center center;
+  background: url("../img/skill/tool.jpg") no-repeat center center;
   background-size: contain;
   width: 200px;
   height: 200px;
@@ -354,7 +417,7 @@ footer .copyright {
 }
 
 .img-works__work {
-  background: url("../img/works/poisonsnake.jpg") no-repeat center center;
+  background: url("../img/works/work.jpg") no-repeat center center;
   background-size: contain;
   width: 200px;
   height: 200px;
@@ -362,15 +425,15 @@ footer .copyright {
 }
 
 .img-works__portfolio {
-  background: url("../img/works/poisonsnake.jpg") no-repeat center center;
+  background: url("../img/works/portfolio.jpg") no-repeat center center;
   background-size: contain;
   width: 200px;
   height: 200px;
   margin: 0 auto;
 }
 
-.img-works__shool {
-  background: url("../img/works/poisonsnake.jpg") no-repeat center center;
+.img-works__school {
+  background: url("../img/works/school.jpg") no-repeat center center;
   background-size: contain;
   width: 200px;
   height: 200px;
