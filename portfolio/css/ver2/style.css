@@ -1,10 +1,15 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap");
+.preload {
+  -webkit-transition: 0 !important;
+  transition: 0 !important;
+}
+
 /*---------------- あとで消す：ここから ----------------*/
 /*---------------- あとで消す：END ----------------*/
 /*---------------- カラー設定 ----------------*/
 /*---------------- カラー設定：END ----------------*/
 /*---------------- フォント設定 ----------------*/
-@import url("https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap");
 /*---------------- フォント設定：END ----------------*/
 /*---------------- レスポンシブ ：END ----------------*/
 body {
@@ -12,13 +17,14 @@ body {
   margin: 0 auto;
 }
 
-body section {
-  width: 100%;
-  margin: 0 auto;
-}
-
+/*---------------- ヘッダー ----------------*/
 header {
-  margin: 20px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10000;
+  background: #000000;
+  padding: 5px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -32,30 +38,159 @@ header .header__site-name {
 }
 
 header .header__site-name h1 {
+  color: #990000;
   font-size: 4em;
+  padding-bottom: 5px;
 }
 
-header .header__nav .header__nav-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+header .header__site-name h1:hover span:nth-of-type(1) {
+  color: #FF0000;
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 
-header .header__nav .header__nav-list li {
-  margin-right: 20px;
-  padding: 10px 15px;
-  width: 120px;
+header .header__site-name h1 span:nth-of-type(1) {
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 
-header .header__nav .header__nav-list li .nav-en {
-  font-size: 2em;
+/*---------------- ヘッダー：END ----------------*/
+/*---------------- ナビゲーション（PC） ----------------*/
+@media all and (min-width: 1024px) {
+  .header__nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .header__nav .header__nav-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .header__nav .header__nav-list li {
+    margin-right: 40px;
+    width: 120px;
+    text-align: center;
+  }
+  .nav-btn {
+    width: 100%;
+    height: 100%;
+    padding: 20px 0 10px;
+    line-height: 20px;
+    position: relative;
+    display: inline-block;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    /*-------- 日本語：ナビゲーション（PC） --------*/
+    /*-------- 日本語：ナビゲーション（PC） --------*/
+  }
+  .nav-btn .nav-en {
+    letter-spacing: 2px;
+    font-size: 2em;
+  }
+  .nav-btn .nav-ja {
+    font-size: 0.8em;
+    text-align: center;
+  }
+  .nav-btn::before {
+    position: absolute;
+    left: 50%;
+    content: '';
+    width: 0;
+    height: 1px;
+    background-color: #990000;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top: 0;
+  }
+  .nav-btn::after {
+    position: absolute;
+    left: 50%;
+    content: '';
+    width: 0;
+    height: 1px;
+    background-color: #990000;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    bottom: 0;
+  }
+  .nav-btn:hover::before, .nav-btn:hover::after {
+    width: 100%;
+    -webkit-transition: .8s;
+    transition: .8s;
+  }
+  .nav-btn .nav-ja {
+    letter-spacing: 0;
+    -webkit-transition: 2s;
+    transition: 2s;
+  }
+  .nav-btn:hover .nav-ja {
+    letter-spacing: 5px;
+    -webkit-transition: 1s;
+    transition: 1s;
+  }
+  .nav-btn .nav-en span {
+    display: inline-block;
+    -webkit-transition: 2s;
+    transition: 2s;
+  }
+  .nav-btn:hover .nav-en span {
+    display: inline-block;
+    -webkit-transform: rotateY(360deg);
+    transform: rotateY(360deg);
+    -webkit-transition: .8s;
+    transition: .8s;
+  }
+  .nav-btn:hover .nav-en span:nth-of-type(1) {
+    color: #FF0000;
+    -webkit-transition-delay: 0.04s;
+    transition-delay: 0.04s;
+  }
+  .nav-btn:hover .nav-en span:nth-of-type(2) {
+    color: #990000;
+    -webkit-transition-delay: 0.12s;
+    transition-delay: 0.12s;
+  }
+  .nav-btn:hover .nav-en span:nth-of-type(3) {
+    color: #990000;
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+  }
+  .nav-btn:hover .nav-en span:nth-of-type(4) {
+    color: #990000;
+    -webkit-transition-delay: 0.28s;
+    transition-delay: 0.28s;
+  }
+  .nav-btn:hover .nav-en span:nth-of-type(5) {
+    color: #990000;
+    -webkit-transition-delay: 0.36s;
+    transition-delay: 0.36s;
+  }
+  .nav-btn:hover .nav-en span:nth-of-type(6) {
+    color: #990000;
+    -webkit-transition-delay: 0.44s;
+    transition-delay: 0.44s;
+  }
+  .nav-btn:hover .nav-en span:nth-of-type(7) {
+    color: #990000;
+    -webkit-transition-delay: 0.52s;
+    transition-delay: 0.52s;
+  }
 }
 
-header .header__nav .header__nav-list li .nav-ja {
-  font-size: 0.8em;
+/*---------------- ナビゲーション（PC） ：END ----------------*/
+section:first-of-type {
+  margin-top: 200px;
 }
 
 section .section__title {
@@ -199,22 +334,41 @@ footer ul li {
   text-align: center;
 }
 
-/*------------------------------------------
-Responsive Grid Media Queries - 1280, 1024, 768, 480
-1280-1024：デスクトップ（デフォルトのグリッド）
-1024-768：タブレット横長
-768-480：タブレット縦長
-480-less：スマホ
---------------------------------------------*/
+@media all and (min-width: 1024px) {
+  header .header__nav-small {
+    display: none;
+  }
+  header #nav-small {
+    position: fixed;
+    top: 0;
+    right: 0;
+  }
+  .btn-top {
+    display: none;
+  }
+}
+
 @media all and (max-width: 1024px) {
+  header {
+    background: #302833;
+  }
+}
+
+@media all and (max-width: 1024px) {
+  header {
+    padding-bottom: 0;
+  }
   header .header__site-name {
-    margin: 10px 0 0 10px;
+    margin: 10px auto 0;
   }
   header .header__site-name h1 {
     font-size: 3em;
   }
   header .header__nav {
     display: none;
+  }
+  section:first-of-type {
+    margin-top: 100px;
   }
   section .section__title {
     font-size: 3em;
@@ -226,7 +380,7 @@ footer ul li {
   }
   section .section__contents dl {
     margin: 20px auto;
-    width: 80%;
+    width: 100%;
   }
   section .section__contents dl:last-child {
     margin: 0 auto 40px;
@@ -257,6 +411,39 @@ footer ul li {
   .section__contents-form .form-style__message textarea {
     height: 140px;
   }
+  .btn-top {
+    border-radius: 50%;
+    border: 1px solid #990000;
+    background: #000000;
+    color: #afafb0;
+    font-family: "Sawarabi Mincho";
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    z-index: 99;
+  }
+  .btn-top a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .btn-top::before {
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 10px;
+    display: block;
+    -webkit-transform: rotate(-45deg) translateX(-50%);
+    transform: rotate(-45deg) translateX(-50%);
+    top: 6px;
+    left: 46%;
+    border-top: 1px solid #afafb0;
+    border-right: 1px solid #afafb0;
+  }
   footer ul li {
     min-width: 50px;
   }
@@ -264,13 +451,13 @@ footer ul li {
 
 @media all and (max-width: 480px) {
   header {
-    margin: 10px 0;
-  }
-  header .header__site-name {
-    margin: 5px 0 0 5px;
+    padding: 0;
   }
   header .header__site-name h1 {
     font-size: 2em;
+  }
+  section:first-of-type {
+    margin-top: 60px;
   }
   section .section__title {
     font-size: 2em;
@@ -281,6 +468,11 @@ footer ul li {
     width: 95%;
     border-radius: 10px;
     padding: 20px 5px;
+  }
+  .btn-top {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
   }
 }
 
@@ -298,17 +490,12 @@ header .header__site-name {
   font-family: "Alex Brush", cursive;
 }
 
-header .header__nav .header__nav-list li {
-  border-top: 1px solid #990000;
-  border-bottom: 1px solid #990000;
-}
-
-header .header__nav .header__nav-list li .nav-en {
+header .nav-en {
   font-family: "Alex Brush", cursive;
   text-align: center;
 }
 
-header .header__nav .header__nav-list li .nav-ja {
+header .nav-ja {
   font-family: "Sawarabi Mincho";
   text-align: center;
 }
@@ -330,6 +517,16 @@ section dl .section__contents-title {
 section dl .section__contents-details {
   color: #afafb0;
   font-family: "Sawarabi Mincho";
+}
+
+section dl .section__contents-details .text-details {
+  font-family: "Sawarabi Mincho";
+  color: #afafb0;
+}
+
+section dl .section__contents-details ul li {
+  font-family: "Sawarabi Mincho";
+  text-align: center;
 }
 
 .section__contents-form {
@@ -423,8 +620,8 @@ footer .copyright {
   text-indent: -9999px;
 }
 
-.img-skill__tool {
-  background: url("../../img/ver2/skill/tool.jpg") no-repeat center center;
+.img-skill__school {
+  background: url("../../img/ver2/skill/school.jpg") no-repeat center center;
   background-size: contain;
   width: 200px;
   height: 200px;

@@ -8,30 +8,54 @@
 	<link rel="stylesheet" href="../../css/destyle.css">
 	<link rel="stylesheet" href="../../css/ver2/style.css">
 </head>
-<body>
-	<header id="page-top">
-		<div class="header__site-name"><h1>Forest Cats</h1></div>
-		<div class="header__nav">
+<body id="page-top">
+	<header id="nav-header">
+		<div class="header__site-name"><h1><a href="index.html"><span>F</span>orest Cats</a></h1></div>
+		<div class="header__nav" id="header__nav">
 			<ul class="header__nav-list">
-				<li><a href="#page-about">
-					<div class="nav-en">About</div>
-					<div class="nav-ja">私</div>
+				<li><a href="#page-about" class="nav-btn">
+					<span class="nav-en"><span>A</span><span>b</span><span>o</span><span>u</span><span>t</span></span><br>
+					<span class="nav-ja">プロフィール</span>
 				</a></li>
-				<li><a href="#page-skill">
-					<div class="nav-en">Skill</div>
-					<div class="nav-ja">スキル</div>
+				<li><a href="#page-skill" class="nav-btn">
+					<span class="nav-en"><span>S</span><span>k</span><span>i</span><span>l</span><span>l</span></span><br>
+					<span class="nav-ja">スキル</span>
 				</a></li>
-				<li><a href="#page-works">
-					<div class="nav-en">Works</div>
-					<div class="nav-ja">お仕事</div>
+				<li><a href="#page-works" class="nav-btn">
+					<span class="nav-en"><span>W</span><span>o</span><span>r</span><span>k</span><span>s</span></span><br>
+					<span class="nav-ja">お仕事</span>
 				</a></li>
-				<li><a href="#page-contact">
-					<div class="nav-en">Contact</div>
-					<div class="nav-ja">メール</div>
+				<li><a href="#page-contact" class="nav-btn">
+					<span class="nav-en"><span>C</span><span>o</span><span>n</span><span>t</span><span>a</span><span>c</span><span>t</span></span><br>
+					<span class="nav-ja">お問い合わせ</span>
 				</a></li>
 			</ul>
 		</div>
 	</header>
+	<div class="header__nav-small btn-trigger" id="nav-small">
+		<div><a href="">＋</a></div>
+		<!-- <span></span>
+		<span></span>
+		<span></span> -->
+		<!-- <ul>
+			<li><a href="#page-about" class="nav-btn-small">
+				<span class="nav-en">About</span><br>
+				<span class="nav-ja">プロフィール</span>
+			</a></li>
+			<li><a href="#page-skill" class="nav-btn-small">
+				<span class="nav-en">Skill</span><br>
+				<span class="nav-ja">スキル</span>
+			</a></li>
+			<li><a href="#page-works" class="nav-btn-small">
+				<span class="nav-en">Works</span><br>
+				<span class="nav-ja">お仕事</span>
+			</a></li>
+			<li><a href="#page-contact" class="nav-btn-small">
+				<span class="nav-en">Contact</span><br>
+				<span class="nav-ja">お問い合わせ</span>
+			</a></li>
+		</ul> -->
+	</div>
 	<section>
 		<h2 class="section__title" id="page-about">About</h2>
 		<div class="section__contents">
@@ -60,16 +84,16 @@
 		<h2 class="section__title" id="page-skill">Skill</h2>
 		<div class="section__contents">
 				<dl>
-					<dt class="section__contents-title">Lang</dt>
+					<dt class="section__contents-title">Works</dt>
 					<dd class="section__contents-details">
-						<div class="img-skill__lang">Lang</div>
-						<p class="text-details">生業</p>
+						<div class="img-skill__lang">Work</div>
+						<p class="text-details">欠かせない存在</p>
 						<ul>
 							<li>HTML5・CSS3</li>
+							<li>MacBookPro・Windows</li>
+							<li>SublimeText3・VisualStudioCode</li>
+							<li>Word・Excel・Google Workspace</li>
 						</ul>
-						<div class="btn-more">
-						<a href="../ver1/index.html">more</a>
-					</div>
 					</dd>
 				</dl>
 				<dl>
@@ -80,26 +104,26 @@
 						<ul>
 							<li>git・Github</li>
 							<li>Gulp・SASS・SCSS</li>
-							<li>jQuery・JavaScript・PHP・WordPress</li>
+							<li>jQuery・JavaScript</li>
+							<li>PHP・WordPress</li>
 						</ul>
-						<div class="btn-more">
-						<a href="../ver1/index.html">more</a>
-					</div>
 					</dd>
 				</dl>
 				<dl>
-					<dt class="section__contents-title">Tool</dt>
+					<dt class="section__contents-title">School</dt>
 					<dd class="section__contents-details">
-						<div class="img-skill__tool">tool</div>
-						<p class="text-details">欠かせない存在</p>
+						<div class="img-skill__school">School etc...</div>
+						<p class="text-details">好奇心には忠実に</p>
 						<ul>
-							<li>MacBookPro・Windows</li>
-							<li>SublimeText3・VisualStudioCode</li>
-							<li>github</li>
+							<li>HTML5・CSS3</li>
+							<li>Gulp・SASS・SCSS</li>
+							<li>Bootstrap・Slack</li>
+							<li>jQuery・JavaScript・Java</li>
+							<li>PHP・WordPress・MySQL</li>
+							<li>Git・Github</li>
+							<li>Word・Excel・Google Workspace</li>
+							<li>Photoshop・Illustrator・PaintTool SAI</li>
 						</ul>
-						<div class="btn-more">
-						<a href="../ver1/index.html">more</a>
-					</div>
 					</dd>
 				</dl>
 		</div>
@@ -111,19 +135,19 @@
 				<dt class="section__contents-title">History</dt>
 				<dd class="section__contents-details">
 					<div class="img-works__history">History</div>
-					<p class="text-details">お仕事</p>
+					<p class="text-details">歴代ポートフォリオ</p>
 					<div class="btn-more">
-						<a href="../ver1/index.html">more</a>
+						<a href="works/history/index.html">more</a>
 					</div>
 				</dd>
 			</dl>
 			<dl>
-				<dt class="section__contents-title">Study</dt>
+				<dt class="section__contents-title">Work</dt>
 				<dd class="section__contents-details">
-					<div class="img-works__portfolio">Study</div>
-					<p class="text-details">好奇心には忠実に</p>
+					<div class="img-works__portfolio">Work</div>
+					<p class="text-details">ありがたきご依頼</p>
 					<div class="btn-more">
-						<a href="../ver1/index.html" target="_blank" rel="noopener noreferrer">more</a>
+						<a href="works/study/index.html" target="_blank" rel="noopener noreferrer">more</a>
 					</div>
 				</dd>
 			</dl>
@@ -133,7 +157,7 @@
 					<div class="img-works__school">School</div>
 					<p class="text-details">あの日見た夢を現実に</p>
 					<div class="btn-more">
-						<a href="../ver1/index.html">more</a>
+						<a href="works/school/index.html">more</a>
 					</div>
 				</dd>
 			</dl>
@@ -161,6 +185,7 @@
 			</form>
 		</div>
 	</section>
+	<div class="btn-top" id="btn-top"><a href="#page-top">TOP</a></div>
 	<footer>
 		<ul>
 			<li><a href="#page-top">Home</a></li>
@@ -170,5 +195,11 @@
 		</ul>
 		<div class="copyright">&copy; Forest Cats .All Rights Reserved.</div>
 	</footer>
+
+	<script
+				src="https://code.jquery.com/jquery-3.6.0.min.js"
+				integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+				crossorigin="anonymous"></script>
+	<script type="text/javascript" src="../../js/ver2/main.js"></script>
 </body>
 </html>
