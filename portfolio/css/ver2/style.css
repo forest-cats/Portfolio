@@ -13,7 +13,7 @@ body {
 }
 
 body section {
-  width: 95%;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -28,7 +28,7 @@ header {
 }
 
 header .header__site-name {
-  margin: 20px 0 0;
+  margin: 20px 0 0 20px;
 }
 
 header .header__site-name h1 {
@@ -94,13 +94,19 @@ section .section__title {
   padding: 10px;
 }
 
-.section__contents dl .section__contents-details p {
+.section__contents dl .section__contents-details .text-details {
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .section__contents dl .section__contents-details .btn-more {
   margin-top: 20px;
+}
+
+.section__contents dl .section__contents-details .btn-more a {
   display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .section__contents dl .section__contents-details ul {
@@ -178,7 +184,7 @@ footer {
 }
 
 footer ul {
-  margin: 20px auto;
+  margin: 30px auto 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -202,7 +208,7 @@ footer ul li {
 --------------------------------------------*/
 @media all and (max-width: 1024px) {
   header .header__site-name {
-    margin: 10px 0 0 0;
+    margin: 10px 0 0 10px;
   }
   header .header__site-name h1 {
     font-size: 3em;
@@ -257,8 +263,11 @@ footer ul li {
 }
 
 @media all and (max-width: 480px) {
+  header {
+    margin: 10px 0;
+  }
   header .header__site-name {
-    margin: 5px 0 0 0;
+    margin: 5px 0 0 5px;
   }
   header .header__site-name h1 {
     font-size: 2em;
@@ -378,65 +387,75 @@ footer .copyright {
   border: 1px solid #990000;
   font-family: "Alex Brush", cursive;
   font-size: 1.5em;
+  text-align: center;
   margin: 0 auto;
-  padding: 5px 20px;
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
 }
 
 /*---------------- カラー＆詳細設定：END ----------------*/
 /*---------------- 画像 ----------------*/
 .img-about__me {
-  background: url("../img/about/me.jpg") no-repeat center center;
+  background: url("../../img/ver2/about/me.jpg") no-repeat center center;
   background-size: contain;
   width: 200px;
   height: 200px;
   margin: 0 auto;
+  text-indent: -9999px;
 }
 
 .img-skill__lang {
-  background: url("../img/skill/lang.jpg") no-repeat center center;
+  background: url("../../img/ver2/skill/lang.jpg") no-repeat center center;
   background-size: contain;
   width: 200px;
   height: 200px;
   margin: 0 auto;
+  text-indent: -9999px;
 }
 
 .img-skill__study {
-  background: url("../img/skill/study.jpg") no-repeat center center;
+  background: url("../../img/ver2/skill/study.jpg") no-repeat center center;
   background-size: contain;
   width: 200px;
   height: 200px;
   margin: 0 auto;
+  text-indent: -9999px;
 }
 
 .img-skill__tool {
-  background: url("../img/skill/tool.jpg") no-repeat center center;
+  background: url("../../img/ver2/skill/tool.jpg") no-repeat center center;
   background-size: contain;
   width: 200px;
   height: 200px;
   margin: 0 auto;
+  text-indent: -9999px;
 }
 
 .img-works__work {
-  background: url("../img/works/work.jpg") no-repeat center center;
+  background: url("../../img/ver2/works/work.jpg") no-repeat center center;
   background-size: contain;
   width: 200px;
   height: 200px;
   margin: 0 auto;
+  text-indent: -9999px;
 }
 
 .img-works__portfolio {
-  background: url("../img/works/portfolio.jpg") no-repeat center center;
+  background: url("../../img/ver2/works/portfolio.jpg") no-repeat center center;
   background-size: contain;
   width: 200px;
   height: 200px;
   margin: 0 auto;
+  text-indent: -9999px;
 }
 
 .img-works__school {
-  background: url("../img/works/school.jpg") no-repeat center center;
+  background: url("../../img/ver2/works/school.jpg") no-repeat center center;
   background-size: contain;
   width: 200px;
   height: 200px;
   margin: 0 auto;
+  text-indent: -9999px;
 }
 /*# sourceMappingURL=style.css.map */

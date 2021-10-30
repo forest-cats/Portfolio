@@ -65,7 +65,7 @@ body {
 	width: 100%;
 	margin: 0 auto;
 	section {
-	width: 95%;
+	width: 100%;
 	margin: 0 auto;
 	}
 }
@@ -75,7 +75,7 @@ header {
 	display: flex;
 	justify-content: space-between;
 	.header__site-name  {
-		margin: 20px 0 0;
+		margin: 20px 0 0 20px;
 		h1 {
 			font-size: 4em;
 		}
@@ -126,12 +126,17 @@ section {
 		}
 		.section__contents-details {
 			padding: 10px;
-			p {
+			.text-details {
 				text-align: center;
+				margin-bottom: 10px;
 			}
 			.btn-more {
 				margin-top: 20px;
-				display: block;
+				a {
+					display: block;
+					width: 100%;
+					height: 100%;
+				}
 			}
 			ul {
 				min-height: 50px;
@@ -189,7 +194,7 @@ section {
 footer {
 	padding: 0 10px 10px;
 	ul {
-		margin: 20px auto;
+		margin: 30px auto 40px;
 		display: flex;
 		justify-content: center;
 		li {
@@ -218,7 +223,7 @@ footer {
 @media all and (max-width: 1024px)  {
 	header {
 		.header__site-name  {
-			margin: 10px 0 0 0;
+			margin: 10px 0 0 10px;
 			h1 {
 				font-size: 3em;
 			}
@@ -290,8 +295,9 @@ footer {
 // スマホのみ
 @media all and (max-width: 480px) {
 	header {
+		margin: 10px 0;
 		.header__site-name  {
-			margin: 5px 0 0 0;
+			margin: 5px 0 0 5px;
 			h1 {
 				font-size: 2em;
 			}
@@ -430,8 +436,12 @@ footer {
 	border: 1px solid $wine;
 	font-family: $font-en;
 	font-size: 1.5em;
+	text-align: center;
 	margin: 0 auto;
-	padding: 5px 20px;
+	width: 120px;
+	height: 40px;
+	line-height: 40px;
+	// padding: 5px 20px;
 }
 /*---------------- カラー＆詳細設定：END ----------------*/
 
@@ -442,14 +452,15 @@ footer {
 	width: 200px;
 	height: 200px;
 	margin: 0 auto;
+	text-indent:  -9999px;
 }
 // about
-.img-about__me {@include img-style("../img/about/me.jpg");}
+.img-about__me {@include img-style("../../img/ver2/about/me.jpg");}
 // skill
-.img-skill__lang {@include img-style("../img/skill/lang.jpg");}
-.img-skill__study {@include img-style("../img/skill/study.jpg");}
-.img-skill__tool {@include img-style("../img/skill/tool.jpg");}
+.img-skill__lang {@include img-style("../../img/ver2/skill/lang.jpg");}
+.img-skill__study {@include img-style("../../img/ver2/skill/study.jpg");}
+.img-skill__tool {@include img-style("../../img/ver2/skill/tool.jpg");}
 // works
-.img-works__work {@include img-style("../img/works/work.jpg");}
-.img-works__portfolio {@include img-style("../img/works/portfolio.jpg");}
-.img-works__school {@include img-style("../img/works/school.jpg");}
+.img-works__work {@include img-style("../../img/ver2/works/work.jpg");}
+.img-works__portfolio {@include img-style("../../img/ver2/works/portfolio.jpg");}
+.img-works__school {@include img-style("../../img/ver2/works/school.jpg");}
