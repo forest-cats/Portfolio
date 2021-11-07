@@ -509,6 +509,7 @@ footer {
 	}
 
 	nav {
+		z-index: 10;
 		.btn-trigger {
 			position: relative;
 			width: 40px;
@@ -544,7 +545,6 @@ footer {
 			position: fixed;
 			top: 20px;
 			right: 20px;
-			z-index: 2;
 			width: 60px;
 			height: 60px;
 			display: flex;
@@ -552,6 +552,7 @@ footer {
 			align-items: center;
 			background: $wine;
 			border: 1px solid $wine;
+			z-index: 99;
 		}
 		#nav-hamburger.active {
 			-webkit-transform: rotate(-360deg);
@@ -577,7 +578,7 @@ footer {
 			position: fixed;
 			top: 0;
 			right: 0;
-			z-index: 1;
+			z-index: 10;
 			width: 60%;
 			display: flex;
 			align-items: center;

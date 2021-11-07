@@ -489,6 +489,9 @@ footer ul li {
   header .header__nav {
     display: none;
   }
+  nav {
+    z-index: 10;
+  }
   nav .btn-trigger {
     position: relative;
     width: 40px;
@@ -526,7 +529,6 @@ footer ul li {
     position: fixed;
     top: 20px;
     right: 20px;
-    z-index: 2;
     width: 60px;
     height: 60px;
     display: -webkit-box;
@@ -540,6 +542,7 @@ footer ul li {
             align-items: center;
     background: #990000;
     border: 1px solid #990000;
+    z-index: 99;
   }
   nav #nav-hamburger.active {
     -webkit-transform: rotate(-360deg);
@@ -564,7 +567,7 @@ footer ul li {
     position: fixed;
     top: 0;
     right: 0;
-    z-index: 1;
+    z-index: 10;
     width: 60%;
     display: -webkit-box;
     display: -ms-flexbox;
