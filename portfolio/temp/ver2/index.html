@@ -6,51 +6,91 @@
 	<title>Forest Cats</title>
 	<link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho" rel="stylesheet">
 	<link rel="stylesheet" href="../../css/destyle.css">
+	<link rel="stylesheet" href="../../css/ver2/slick/slick.css">
+	<link rel="stylesheet" href="../../css/ver2/slick/slick-theme.css">
 	<link rel="stylesheet" href="../../css/ver2/style.css">
 </head>
-<body>
-	<header id="page-top">
-		<div class="header__site-name"><h1>Forest Cats</h1></div>
-		<div class="header__nav">
+<body id="page-top" class="preload">
+	<header id="nav-header">
+		<div class="header__site-name"><h1><a href="#"><span>F</span>orest Cats</a></h1></div>
+		<div class="header__nav" id="header__nav">
 			<ul class="header__nav-list">
-				<li><a href="#page-about">
-					<div class="nav-en">About</div>
-					<div class="nav-ja">私</div>
+				<li><a href="#page-about" class="nav-btn">
+					<span class="nav-en"><span>A</span><span>b</span><span>o</span><span>u</span><span>t</span></span><br>
+					<span class="nav-ja">プロフィール</span>
 				</a></li>
-				<li><a href="#page-skill">
-					<div class="nav-en">Skill</div>
-					<div class="nav-ja">スキル</div>
+				<li><a href="#page-skill" class="nav-btn">
+					<span class="nav-en"><span>S</span><span>k</span><span>i</span><span>l</span><span>l</span></span><br>
+					<span class="nav-ja">スキル</span>
 				</a></li>
-				<li><a href="#page-works">
-					<div class="nav-en">Works</div>
-					<div class="nav-ja">お仕事</div>
+				<li><a href="#page-works" class="nav-btn">
+					<span class="nav-en"><span>W</span><span>o</span><span>r</span><span>k</span><span>s</span></span><br>
+					<span class="nav-ja">お仕事</span>
 				</a></li>
-				<li><a href="#page-contact">
-					<div class="nav-en">Contact</div>
-					<div class="nav-ja">メール</div>
+				<li><a href="#page-contact" class="nav-btn">
+					<span class="nav-en"><span>C</span><span>o</span><span>n</span><span>t</span><span>a</span><span>c</span><span>t</span></span><br>
+					<span class="nav-ja">お問い合わせ</span>
 				</a></li>
 			</ul>
 		</div>
 	</header>
+
+	<nav class="header__nav-small">
+		<div class="nav-hamburger btn-trigger" id="nav-hamburger">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div class="nav-inner" id="nav-inner">
+			<ul>
+				<li class="nav-btn-small">
+						<a href="#page-about">
+						<span class="nav-en">About</span><br>
+						<span class="nav-ja">プロフィール</span>
+					</a>
+				</li>
+				<li class="nav-btn-small">
+						<a href="#page-skill">
+						<span class="nav-en">Skill</span><br>
+						<span class="nav-ja">スキル</span>
+					</a>
+				</li>
+				<li class="nav-btn-small">
+						<a href="#page-works">
+						<span class="nav-en">Works</span><br>
+						<span class="nav-ja">お仕事</span>
+					</a>
+				</li>
+				<li class="nav-btn-small">
+						<a href="#page-contact">
+						<span class="nav-en">Contact</span><br>
+						<span class="nav-ja">お問い合わせ</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
 	<section>
 		<h2 class="section__title" id="page-about">About</h2>
 		<div class="section__contents">
 			<dl>
-				<dt class="section__contents-title">Who....?</dt>
+				<dt class="section__contents-title"><span>W</span>ho....?</dt>
 				<dd class="section__contents-details">
 					<div class="img-about__me">About</div>
 				</dd>
 			</dl>
 			<dl>
-				<dt class="section__contents-title">Me!</dt>
+				<dt class="section__contents-title"><span>H</span>ello World!</dt>
 				<dd class="section__contents-details">
-					<ul>
-						<li>#ノルウェージャンフォレストキャット</li>
-						<li>#３匹の猫様に仕えるコーダー</li>
-						<li>#コーディングの海に溺れたい</li>
-						<li>#ゲーム #アニメ #漫画 #映画</li>
-						<li>#コーヒー #アイス</li>
-						<li>#1988.Dec</li>
+					<p class="sub-title">中の人</p>
+					<ul class="text-details">
+						<li><span class="ani-rotate">#</span>ノルウェージャンフォレストキャット</li>
+						<li><span class="ani-rotate">#</span>３匹の猫様に仕えるコーダー</li>
+						<li><span class="ani-rotate">#</span>コーディングの海に溺れたい</li>
+						<li><span class="ani-rotate">#</span>ゲーム <span class="ani-rotate">#</span>アニメ <span class="ani-rotate">#</span>漫画 <span class="ani-rotate">#</span>映画</li>
+						<li><span class="ani-rotate">#</span>コーヒー <span class="ani-rotate">#</span>アイス</li>
+						<li><span class="ani-rotate">#</span>1988.Dec</li>
 					</ul>
 				</dd>
 			</dl>
@@ -60,85 +100,96 @@
 		<h2 class="section__title" id="page-skill">Skill</h2>
 		<div class="section__contents">
 				<dl>
-					<dt class="section__contents-title">Lang</dt>
+					<dt class="section__contents-title"><span>W</span>orks</dt>
 					<dd class="section__contents-details">
-						<div class="img-skill__lang">Lang</div>
-						<p class="text-details">生業</p>
-						<ul>
-							<li>HTML5・CSS3</li>
-						</ul>
-						<div class="btn-more">
-						<a href="../ver1/index.html">more</a>
-					</div>
+						<div class="img-skill__lang">Work</div>
+						<p class="sub-title">欠かせない存在</p>
+						<div class="text-details-wrap">
+							<span>
+								<ul class="text-details">
+									<li>HTML5・CSS3</li>
+									<li>MacBookPro・Windows</li>
+									<li>SublimeText3・VisualStudioCode</li>
+									<li>Word・Excel・Google Workspace</li>
+								</ul>
+							</span>
+						</div>
 					</dd>
 				</dl>
 				<dl>
-					<dt class="section__contents-title">Study</dt>
+					<dt class="section__contents-title"><span>S</span>tudy</dt>
 					<dd class="section__contents-details">
 						<div class="img-skill__study">Study</div>
-						<p class="text-details">さらなる高みへ</p>
-						<ul>
-							<li>git・Github</li>
-							<li>Gulp・SASS・SCSS</li>
-							<li>jQuery・JavaScript・PHP・WordPress</li>
-						</ul>
-						<div class="btn-more">
-						<a href="../ver1/index.html">more</a>
-					</div>
+						<p class="sub-title">さらなる高みへ</p>
+						<div class="text-details-wrap">
+							<span>
+								<ul class="text-details">
+									<li>git・Github</li>
+									<li>Gulp・SASS・SCSS</li>
+									<li>jQuery・JavaScript</li>
+									<li>PHP・WordPress</li>
+								</ul>
+							</span>
+						</div>
 					</dd>
 				</dl>
 				<dl>
-					<dt class="section__contents-title">Tool</dt>
+					<dt class="section__contents-title"><span>S</span>chool etc....</dt>
 					<dd class="section__contents-details">
-						<div class="img-skill__tool">tool</div>
-						<p class="text-details">欠かせない存在</p>
-						<ul>
-							<li>MacBookPro・Windows</li>
-							<li>SublimeText3・VisualStudioCode</li>
-							<li>github</li>
-						</ul>
-						<div class="btn-more">
-						<a href="../ver1/index.html">more</a>
-					</div>
+						<div class="img-skill__school">School etc...</div>
+						<p class="sub-title">好奇心には忠実に</p>
+						<div class="text-details-wrap">
+							<span>
+								<ul class="text-details">
+									<li>Gulp・SASS・SCSS</li>
+									<li>Bootstrap・Slack</li>
+									<li>jQuery・JavaScript・Java</li>
+									<li>PHP・WordPress・MySQL</li>
+									<li>Git・Github</li>
+									<li>Word・Excel・Google Workspace</li>
+									<li>Photoshop・Illustrator・PaintTool SAI</li>
+								</ul>
+							</span>
+						</div>
 					</dd>
 				</dl>
 		</div>
 	</section>
 	<section>
 		<h2 class="section__title" id="page-works">Works</h2>
-		<div class="section__contents">
+		<div class="section__contents section_contents_works">
 			<dl>
-				<dt class="section__contents-title">History</dt>
+				<dt class="section__contents-title"><span>H</span>istory</dt>
 				<dd class="section__contents-details">
 					<div class="img-works__history">History</div>
-					<p class="text-details">お仕事</p>
+					<p class="sub-title">歴代ポートフォリオ</p>
 					<div class="btn-more">
-						<a href="../ver1/index.html">more</a>
+						<a href="../ver1/index.html" target="_blank" rel="noopener noreferrer"><span>Jump</span></a>
 					</div>
 				</dd>
 			</dl>
 			<dl>
-				<dt class="section__contents-title">Study</dt>
+				<dt class="section__contents-title"><span>W</span>ork</dt>
 				<dd class="section__contents-details">
-					<div class="img-works__portfolio">Study</div>
-					<p class="text-details">好奇心には忠実に</p>
+					<div class="img-works__work">Work</div>
+					<p class="sub-title">ありがたきご依頼</p>
 					<div class="btn-more">
-						<a href="../ver1/index.html" target="_blank" rel="noopener noreferrer">more</a>
+						<a href="works/work/index.html"><span>More</span></a>
 					</div>
 				</dd>
 			</dl>
 			<dl>
-				<dt class="section__contents-title">School</dt>
+				<dt class="section__contents-title"><span>S</span>chool</dt>
 				<dd class="section__contents-details">
 					<div class="img-works__school">School</div>
-					<p class="text-details">あの日見た夢を現実に</p>
+					<p class="sub-title">あの日見た夢を現実に</p>
 					<div class="btn-more">
-						<a href="../ver1/index.html">more</a>
+						<a href="works/school/index.html"><span>More</span></a>
 					</div>
-				</dd>
 			</dl>
 		</div>
 	</section>
+
 	<section>
 		<h2 class="section__title" id="page-contact">Contact</h2>
 		<div class="section__contents-form">
@@ -161,6 +212,7 @@
 			</form>
 		</div>
 	</section>
+	<div class="btn-top" id="btn-top"><a href="#page-top">TOP</a></div>
 	<footer>
 		<ul>
 			<li><a href="#page-top">Home</a></li>
@@ -170,5 +222,12 @@
 		</ul>
 		<div class="copyright">&copy; Forest Cats .All Rights Reserved.</div>
 	</footer>
+
+	<script
+				src="https://code.jquery.com/jquery-3.6.0.min.js"
+				integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+				crossorigin="anonymous"></script>
+	<script type="text/javascript" src="../../js/ver2/slick.min.js"></script>
+	<script type="text/javascript" src="../../js/ver2/main.js"></script>
 </body>
 </html>

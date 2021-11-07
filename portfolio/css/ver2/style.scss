@@ -1,3 +1,11 @@
+// 画面読み込み時にtransitionのアニメーションを動作させないおまじない
+.preload *{
+	-webkit-transition: none !important;
+	-moz-transition: none !important;
+	-ms-transition: none !important;
+	-o-transition: none !important;
+	transition: none !important;
+}
 
 /*---------------- あとで消す：ここから ----------------*/
 // body {
@@ -45,11 +53,7 @@ $form-color: #FFFFFF;
 // $main: #990000;
 // $main-sub: #90A4AE;
 
-// $nav-hover: #ff0000;
-
-// $main-pc: #90A4AE;
-// $nav-hover-pc: #990000;
-// $nav-accent: #ff33ff;
+$nav-accent: #ff33ff;
 /*---------------- カラー設定：END ----------------*/
 
 
@@ -64,46 +68,187 @@ $font-ja: 'Sawarabi Mincho';
 body {
 	width: 100%;
 	margin: 0 auto;
-	section {
-	width: 100%;
-	margin: 0 auto;
-	}
 }
 
+/*---------------- ヘッダー ----------------*/
 header {
-	margin: 20px 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 10000;
+	background: $black;
+	padding: 5px 0;
 	display: flex;
 	justify-content: space-between;
-	.header__site-name  {
+
+	.header__site-name	{
 		margin: 20px 0 0 20px;
 		h1 {
+			color: $wine;
 			font-size: 4em;
+			padding-bottom: 5px;
+			&:hover	span:nth-of-type(1) {
+				color: $red;
+				transition: 1s;
+			}
+			span:nth-of-type(1) {
+				// color: $wine;
+				transition: 1s;
+			}
 		}
 	}
+}
+/*---------------- ヘッダー：END ----------------*/
+
+/*---------------- ナビゲーション（PC） ----------------*/
+@media all and (min-width: 1024px)	{
 	.header__nav {
+		display: flex;
+		align-items: center;
 		.header__nav-list {
 			display: flex;
 			align-items: center;
 			li {
-				margin-right: 20px;
-				padding: 10px 15px;
+				margin-right: 40px;
 				width: 120px;
-				.nav-en {
-					font-size: 2em;
+				text-align: center;
+			}
+		}
+	}
+
+	.nav-btn {
+		width: 100%;
+		height: 100%;
+		padding: 20px 0 10px;
+		line-height: 20px;
+
+		position: relative;
+		display: inline-block;
+		transition: 0.3s;
+
+		.nav-en {
+			letter-spacing: 2px;
+			font-size: 2em;
+		}
+		.nav-ja {
+			font-size: 0.8em;
+			text-align: center;
+		}
+
+		// 伸びるアニメーション（上線・下線・日本語）
+		@mixin nav-animation-stretch {
+			position: absolute;
+			left: 50%;
+			content: '';
+			width: 0;
+			height: 1px;
+			background-color: $wine;
+			transition: all 1s;
+			-webkit-transform: translateX(-50%);
+			transform: translateX(-50%);
+		}
+		// 上線
+		&::before {
+			@include nav-animation-stretch;
+			top: 0;
+		}
+		// 下線
+		&::after {
+			@include nav-animation-stretch;
+			bottom: 0;
+		}
+		// 上下線マウスホバー
+		&:hover {
+			&::before,
+			&::after {
+				width: 100%;
+				transition: .8s;
+			}
+		}
+
+		/*-------- 日本語：ナビゲーション（PC） --------*/
+		// マウスオーバー
+		.nav-ja {
+			letter-spacing: 0;
+			transition: 2s;
+		}
+		// マウスホバー
+		&:hover {
+			.nav-ja {
+				letter-spacing: 5px;
+				transition: 1s;
+			}
+		}
+
+		/*-------- 日本語：ナビゲーション（PC） --------*/
+		// マウスオーバー
+		.nav-en span {
+			display: inline-block;
+			transition: 2s;
+		}
+		// マウスホバー
+		&:hover {
+			// 英語部分
+			.nav-en span {
+				display: inline-block;
+				-webkit-transform: rotateY(360deg);
+				transform: rotateY(360deg);
+				transition: .8s;
+				@mixin nav-set($color:$wine,$delay:0s) {
+					color: $color;
+					-webkit-transition-delay: $delay;
+					transition-delay: $delay;
 				}
-				.nav-ja {
-					font-size: 0.8em;
+				&:nth-of-type(1) {
+					@include nav-set($color:$red,$delay:.04s);
+				}
+				&:nth-of-type(2) {
+					@include nav-set($delay:.12s);
+				}
+				&:nth-of-type(3) {
+					@include nav-set($delay:.20s);
+				}
+				&:nth-of-type(4) {
+					@include nav-set($delay:.28s);
+				}
+				&:nth-of-type(5) {
+					@include nav-set($delay:.36s);
+				}
+				&:nth-of-type(6) {
+					@include nav-set($delay:.44s);
+				}
+				&:nth-of-type(7) {
+					@include nav-set($delay:.52s);
 				}
 			}
 		}
 	}
 }
+/*---------------- ナビゲーション（PC） ：END ----------------*/
 
 section {
+	&:first-of-type {
+		margin-top: 180px;
+	}
 	.section__title {
+		font-size: 4em;
+		padding: 10px 0 5px;
+		margin: 120px auto 0;
+	}
+
+	//Works
+	.section__title-works {
 		font-size: 3em;
-		padding: 10px;
-		margin: 0 auto;
+		padding: 10px 0 5px;
+		margin: 80px auto 40px;
+	}
+	h3.section__contents-title {
+		font-family: $font-en;
+		text-align: center;
+		font-size: 2.5em;
+		padding: 10px 10px 5px;
+		letter-spacing: 2px;
+		margin-bottom: 10px;
 	}
 }
 
@@ -111,24 +256,30 @@ section {
 .section__contents {
 	display: flex;
 	justify-content: center;
+	margin: 80px auto;
 	dl {
 		margin-top: 40px;
-		margin-bottom: 80px;
 		width: 28%;
-		margin: 60px 60px 70px 0;
-		&:last-child {
-			margin-right: 0;
+		&:not(:last-child) {
+			margin-right: 60px;
 		}
 		.section__contents-title {
+			// border-bottom: 1px solid $silver;
 			font-size: 2.5em;
 			padding: 10px 10px 5px;
 			letter-spacing: 2px;
 		}
 		.section__contents-details {
 			padding: 10px;
-			.text-details {
+			.sub-title {
+				font-size: 1.2em;
 				text-align: center;
-				margin-bottom: 10px;
+				margin: 10px 0;
+			}
+			.text-details {
+				li {
+					margin-bottom: 10px;
+				}
 			}
 			.btn-more {
 				margin-top: 20px;
@@ -142,6 +293,9 @@ section {
 				min-height: 50px;
 			}
 		}
+	}
+	&.section_contents_works {
+		margin-bottom: 0;
 	}
 }
 
@@ -206,51 +360,298 @@ footer {
 }
 
 
-/*------------------------------------------
-Responsive Grid Media Queries - 1280, 1024, 768, 480
-1280-1024：デスクトップ（デフォルトのグリッド）
-1024-768：タブレット横長
-768-480：タブレット縦長
-480-less：スマホ
---------------------------------------------*/
-// PC
+//------------------------------------------
+// Responsive Grid Media Queries - 1280, 1024, 768, 480
+// 1280-1024：デスクトップ（デフォルトのグリッド）
+// 1024-768：タブレット横長
+// 768-480：タブレット縦長
+// 480-less：スマホ
+//--------------------------------------------
+
 // @media all and (min-width: 1024px) and (max-width: 1280px) {}
 // タブレット横長
 // @media all and (min-width: 768px) and (max-width: 1024px) {}
 // タブレット縦長
 // @media all and (min-width: 480px) and (max-width: 768px) {}
-// タブレット縦長＆スマホ
-@media all and (max-width: 1024px)  {
+
+// -------- PC：レスポンシブ --------
+@media all and (min-width: 1024px)	{
+	.header__nav-small {
+		display: none;
+	}
+	// TOPへ戻る（タブレット・スマホのみ）
+	.btn-top {
+		display: none;
+	}
+
+	.section__contents-details {
+		.text-details-wrap {
+			border: 1px solid $black;
+			padding: 10px;
+			position: relative;
+			outline: none;
+			transition: all .2s;
+			// マウスホバー
+			&::before,
+			&::after,
+			& span::before,
+			& span::after {
+				position: absolute;
+				z-index: 2;
+				content: '';
+				width: 0;
+				height: 0;
+				border: 1px solid transparent;
+				transition: all .3s;
+				visibility: hidden;
+				box-sizing: content-box;
+			}
+			&::before {
+				top: -1px;
+				left: -1px;
+				border-left-color: $red;
+			}
+			&::after {
+				bottom: -1px;
+				right: -1px;
+				border-right-color: $red;
+			}
+			& span::before {
+				bottom: -1px;
+				left: -1px;
+				border-bottom-color: $red;
+			}
+			& span::after {
+				top: -1px;
+				right: -1px;
+				border-top-color: $red;
+			}
+		}
+	}
+	.section__contents-title,
+	.section__contents-title span:nth-of-type(1),
+	.section__contents-title span:nth-of-type(1),
+	.text-details .ani-rotate {
+		transition: 2s;
+	}
+	.section__contents dl:hover  {
+		transition: 1s;
+		.section__contents-title {
+				letter-spacing: 5px;
+				transition: 1s;
+				span:nth-of-type(1) {
+					color: $red;
+					transition: 1s;
+				}
+				span:nth-of-type(1) {
+					// color: $wine;
+					transition: 1s;
+				}
+		}
+		.text-details-wrap {
+			&::before,
+			&::after {
+				height: 100%;
+				visibility: visible;
+			}
+			& span::before,
+			& span::after {
+				width: 100%;
+				visibility: visible;
+			}
+		}
+
+		.text-details {
+			transition:  2s;
+			.ani-rotate {
+				transition:  2s;
+				color: $wine;
+				display: inline-block;
+				-webkit-transform: rotateY(360deg);
+				transform: rotateY(360deg);
+			}
+		}
+
+		.btn-more {
+			letter-spacing: 2px;
+			transition: 1s;
+			background-color: $wine;
+			span {
+				color: $black;
+				transition: 1s;
+			}
+		}
+	}
+}
+
+// -------- タブレット縦長＆スマホ：レスポンシブ --------
+
+@media all and (max-width: 1024px)	{
 	header {
-		.header__site-name  {
-			margin: 10px 0 0 10px;
+		padding-bottom: 0;
+		.header__site-name	{
+			margin: 10px auto 0;
 			h1 {
-				font-size: 3em;
+				font-size: 4em;
 			}
 		}
 		.header__nav {
 			display: none;
 		}
 	}
+
+	nav {
+		.btn-trigger {
+			position: relative;
+			width: 40px;
+			height: 40px;
+			cursor: pointer;
+			border-radius: 50%;
+			span {
+				position: absolute;
+				left: 0;
+				right:0;
+				margin: 0 auto;
+				width: 60%;
+				height: 3px;
+				background-color: $black;
+				border-radius: 4px;
+				&:nth-of-type(1) {
+					top: 15px;
+				}
+				&:nth-of-type(2) {
+					top: 28px;
+				}
+				&:nth-of-type(3) {
+					bottom: 15px;
+				}
+			}
+		}
+		.btn-trigger, .btn-trigger span {
+			display: inline-block;
+			transition: all .5s;
+			box-sizing: border-box;
+		}
+		.nav-hamburger {
+			position: fixed;
+			top: 20px;
+			right: 20px;
+			z-index: 2;
+			width: 60px;
+			height: 60px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background: $wine;
+			border: 1px solid $wine;
+		}
+		#nav-hamburger.active {
+			-webkit-transform: rotate(-360deg);
+			transform: rotate(360deg);
+		}
+		#nav-hamburger.active span:nth-of-type(1),
+		#nav-hamburger.active span:nth-of-type(3) {
+			width: 15px;
+			left: -42px;
+		}
+		#nav-hamburger.active span:nth-of-type(1) {
+			-webkit-transform: translate(32px,8px) rotate(45deg);
+			transform: translate(32px,8px) rotate(45deg);
+		}
+		#nav-hamburger.active span:nth-of-type(3) {
+			-webkit-transform: translate(32px,-8px) rotate(-45deg);
+			transform: translate(32px,-8px) rotate(-45deg);
+		}
+
+		.nav-inner {
+			background: $black;
+			border: 1px solid $wine;
+			position: fixed;
+			top: 0;
+			right: 0;
+			z-index: 1;
+			width: 60%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			// アニメーション
+			pointer-events: none;
+			opacity: 0;
+			transform-origin: center;
+			transform: scale(.5);
+			transition: all .3s ease;
+			&.is-active {
+				pointer-events: auto;
+				opacity: 1;
+				transform: scale(1.0);
+			}
+			ul {
+				padding: 60px 0 50px;
+				li {
+					text-align: center;
+					line-height: 25px;
+					&:not(:last-of-type) {
+						margin-bottom: 40px;
+						border-bottom: 1px solid $wine;
+					}
+					a {
+						display: block;
+						width: 100%;
+						height: 100%;
+					}
+					.nav-en {
+						color: $wine;
+						font-family: $font-en;
+						font-size: 2em;
+					}
+					.nav-ja {
+						color: $silver;
+						font-family: $font-ja;
+					}
+				}
+			}
+		}
+	}
+
 	// About・Skill・Works
 	section {
+		&:first-of-type {
+			margin-top: 100px;
+		}
 		.section__title {
 			font-size: 3em;
 			padding: 8px;
 			margin: 0 auto;
 		}
+		.section__title-works {
+			font-size: 2.5em;
+			padding: 6px;
+			margin: 0 auto 20px;
+		}
+		h3.section__contents-title {
+			font-size: 2em;
+		}
 		.section__contents {
 			display: block;
 			dl {
 				margin: 20px auto;
-				width: 80%;
+				width: 100%;
 				&:last-child {
 					margin: 0 auto 40px;
 				}
 				.section__contents-details {
-					ul li {
-						text-align: center;
+					.text-details-wrap {
+						border: 1px solid $wine;
+						padding: 10px;
+						width: 60%;
+						margin: 0 auto;
+						ul li {
+							text-align: center;
+						}
 					}
+				}
+				.section__contents-title {
+					font-size: 2em;
 				}
 			}
 		}
@@ -283,6 +684,43 @@ footer {
 		}
 	}
 
+	// TOPへ戻るボタン
+	.btn-top {
+		border-radius: 50%;
+		border: 1px solid $silver;
+		background: $silver;
+		color: $black;
+		font-family: $font-ja;
+		width: 60px;
+		height: 60px;
+		line-height: 60px;
+		text-align: center;
+
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+		z-index: 99;
+		a {
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+		&::before {
+			position: absolute;
+			content: "";
+			width: 10px;
+			height: 10px;
+			display: block;
+			-webkit-transform: rotate(-45deg) translateX(-50%);
+			-ms-transform: rotate(-45deg) translateX(-50%);
+			transform: rotate(-45deg) translateX(-50%);
+			top: 8px;
+			left: 48%;
+			border-top: 2px solid $wine;
+			border-right: 2px solid $wine;
+		}
+	}
+
 	footer {
 		ul {
 			li {
@@ -292,23 +730,89 @@ footer {
 	}
 }
 
-// スマホのみ
+// -------- スマホのみ：レスポンシブ	--------
 @media all and (max-width: 480px) {
 	header {
-		margin: 10px 0;
-		.header__site-name  {
-			margin: 5px 0 0 5px;
+		padding: 0;
+		.header__site-name	{
 			h1 {
-				font-size: 2em;
+				font-size: 3em;
 			}
+		}
+	}
+	nav {
+		.btn-trigger {
+		span {
+			position: absolute;
+			left: 0;
+			right:0;
+			margin: 0 auto;
+			width: 60%;
+			height: 2px;
+			border-radius: 4px;
+			&:nth-of-type(1) {
+				top: 10px;
+			}
+			&:nth-of-type(2) {
+				top: 18px;
+			}
+			&:nth-of-type(3) {
+				bottom: 10px;
+			}
+		}
+	}
+		.nav-hamburger {
+			top: 20px;
+			right: 10px;
+			width: 40px;
+			height: 40px;
+			span {
+				height: 2px;
+			}
+		}
+		#nav-hamburger.active span:nth-of-type(1),
+		#nav-hamburger.active span:nth-of-type(3) {
+			width: 15px;
+			left: -48px;
+		}
+		#nav-hamburger.active span:nth-of-type(1) {
+			-webkit-transform: translate(31px,13px) rotate(-45deg);
+			transform: translate(31px,13px) rotate(-45deg);
+		}
+		#nav-hamburger.active span:nth-of-type(3) {
+			-webkit-transform: translate(31px,-13px) rotate(45deg);
+			transform: translate(31px,-13px) rotate(45deg);
+		}
+		.nav-inner {
+			width: 90%;
 		}
 	}
 	// About・Skill・Works
 	section {
+		&:first-of-type {
+			margin-top: 70px;
+		}
 		.section__title {
-			font-size: 2em;
-			padding: 5px;
+			font-size: 2.5em;
+			padding: 5px 0 0;
 			margin: 0 auto;
+		}
+		.section__title-works {
+			font-size: 2em;
+			padding: 5px 0 0;
+			margin: 0 auto 10px;
+		}
+		h3.section__contents-title {
+			font-size: 1.5em;
+		}
+		.section__contents {
+			dl {
+				.section__contents-details {
+					.text-details-wrap {
+						width: 90%;
+					}
+				}
+			}
 		}
 		.section__contents-form {
 			width: 95%;
@@ -316,17 +820,19 @@ footer {
 			padding: 20px 5px;
 		}
 	}
+
+	// TOPへ戻る
+	.btn-top {
+		width: 50px;
+		height: 50px;
+		line-height: 55px;
+		right: 10px;
+		&::before {
+			top: 6px;
+		}
+	}
 }
 /*---------------- レスポンシブ ：END ----------------*/
-
-
-
-
-
-
-
-
-
 
 
 
@@ -340,49 +846,56 @@ header {
 	.header__site-name {
 		font-family: $font-en;
 	}
-	.header__nav {
-		.header__nav-list {
-			li {
-				border-top: 1px solid $wine;
-				border-bottom: 1px solid $wine;
-				.nav-en {
-					font-family: $font-en;
-					text-align: center;
-				}
-				.nav-ja {
-					font-family: $font-ja;
-					text-align: center;
-				}
-			}
-		}
+	.nav-en {
+		font-family: $font-en;
+		text-align: center;
+	}
+	.nav-ja {
+		font-family: $font-ja;
+		text-align: center;
 	}
 }
 
 // About・Skill・Works
 section {
-	.section__title {
+	.section__title,
+	.section__title-works {
 		color: $wine;
 		border-top: 1px solid $wine;
 		border-bottom: 1px solid $wine;
 		font-family: $font-en;
 		text-align: center;
 	}
+
+	h3.section__contents-title {
+		color: $silver;
+		font-family: $font-en;
+		text-align: center;
+	}
 	dl {
-		.section__contents-title {
-			color: $wine;
+		.section__contents-title{
+			color: $silver;
 			font-family: $font-en;
 			text-align: center;
 		}
 		.section__contents-details {
 			color: $silver;
 			font-family: $font-ja;
+			.sub-title {
+				font-family: $font-ja;
+				color: $wine;
+			}
+			ul li {
+				font-family: $font-ja;
+				text-align: center;
+			}
 		}
 	}
 }
 
 // Contact
 .section__contents-form {
-	background:  $form-bg;
+	background:	$form-bg;
 	border: 1px solid $form-border;
 	.contents-form__style {
 		dt {
@@ -441,7 +954,7 @@ footer {
 	width: 120px;
 	height: 40px;
 	line-height: 40px;
-	// padding: 5px 20px;
+	transition: 1s;
 }
 /*---------------- カラー＆詳細設定：END ----------------*/
 
@@ -452,15 +965,203 @@ footer {
 	width: 200px;
 	height: 200px;
 	margin: 0 auto;
-	text-indent:  -9999px;
+	text-indent:	-9999px;
 }
 // about
 .img-about__me {@include img-style("../../img/ver2/about/me.jpg");}
 // skill
 .img-skill__lang {@include img-style("../../img/ver2/skill/lang.jpg");}
 .img-skill__study {@include img-style("../../img/ver2/skill/study.jpg");}
-.img-skill__tool {@include img-style("../../img/ver2/skill/tool.jpg");}
+.img-skill__school {@include img-style("../../img/ver2/skill/school.jpg");}
 // works
-.img-works__history {@include img-style("../../img/ver2/works/work.jpg");}
-.img-works__portfolio {@include img-style("../../img/ver2/works/portfolio.jpg");}
-.img-works__school {@include img-style("../../img/ver2/works/school.jpg");}
+.img-works__history {@include img-style("../../img/ver2/works/history/history.jpg");}
+.img-works__work {@include img-style("../../img/ver2/works/work/work.jpg");}
+.img-works__school {@include img-style("../../img/ver2/works/school/school.jpg");}
+
+
+/*---------------- slick設定 ----------------*/
+.section__contents-view {
+	border: 1px solid $wine;
+	color: $silver;
+	margin: 10px auto 80px;
+	padding: 25px;
+	width: 80%;
+	.contents-view-container-tab {
+		margin: 0 auto;
+		max-width: 1000px;
+		.tab-nav {
+			height: 60px;
+			width: 140px;
+			border: 1px solid $silver;
+			border-bottom: 2px solid $silver;
+			line-height: 16px;
+			text-align: center;
+			font-size: 20px;
+			float: left;
+			cursor: pointer;
+			padding: 8px 0;
+			&.selected {
+				background-color: $silver;
+				color: $black;
+				border-bottom: 2px solid $wine;
+			}
+			.font-en {
+				font-family: $font-en;
+				letter-spacing: 2px;
+			}
+			.font-ja {
+				font-size: 0.8em;
+				font-family: $font-ja;
+			}
+		}
+	}
+	.contents-view-container {
+		margin: 0 auto;
+		position: relative;
+		max-width: 1000px;
+		height: 600px;
+		overflow: hidden;
+		clear: left;
+		border: 1px solid $silver;
+
+		.tab-box {
+			display: inline-block;
+			white-space: nowrap;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			cursor: pointer;
+		}
+
+		@mixin tab-view-position($top, $left) {
+			top: $top;
+			left: $left;
+		}
+		#contents-view-first {@include tab-view-position(0px, 0px);}
+		#contents-view-second {@include tab-view-position(0px, 1000px);}
+		#contents-view-third {@include tab-view-position(0px, 2000px);}
+
+		#contents-view-slide {
+			transition: transform 1s ease-in-out 0s;
+			-moz-transition: -moz-transform 1s ease-in-out 0s;
+			-webkit-transition: -webkit-transform 1s ease-in-out 0s;
+		}
+		@mixin tab-view-translateX($width) {
+			transform: translateX($width);
+			-moz-transform: translateX($width);
+			-webkit-transform: translateX($width);
+		}
+		.move-to-first {@include tab-view-translateX(0px);}
+		.move-to-second {@include tab-view-translateX(-1000px);}
+		.move-to-third {@include tab-view-translateX(-2000px);}
+
+		.slick-custom {
+			button {
+				&.slick-prev {
+					left: 20px;
+					z-index: 2;
+					&::before {
+						font-size: 38px;
+						color: $wine;
+					}
+				}
+				&.slick-next {
+					right: 40px;
+					z-index: 2;
+					&::before {
+						font-size: 38px;
+						color: $wine;
+					}
+				}
+			}
+			li {
+				img {
+					margin: 0 auto;
+					max-width: 100%;
+					height: auto;
+				}
+			}
+			.slick-dots {
+				bottom: -30px;
+				button::before {
+					width: 10px;
+					height: 10px;
+					color: $silver;
+				}
+			}
+		}
+		.works-link-area {
+			max-width: 1000px;
+			height: 600px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			.link-works-blank {
+				max-width: 200px;
+				height: auto;
+				a {
+					display: block;
+					width: 100%;
+					height: 100%;
+					img {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+// -------- タブレット縦長＆スマホ：レスポンシブ（slick用） --------
+
+@media all and (max-width: 1024px)	{
+	.section__contents-view {
+		width: 95%;
+	}
+}
+
+// -------- スマホのみ：レスポンシブ（slick用）	--------
+@media all and (max-width: 480px) {
+
+	.section__contents-view {
+		border: none;
+		width: 100%;
+		margin: 0;
+		margin-bottom: 40px;
+		padding: 0;
+		.contents-view-container-tab {
+			.tab-nav {
+				width: 100px;
+				.font-en {
+					font-size: 0.8em;
+				}
+				.font-ja {
+					font-size: 0.6em;
+				}
+			}
+		}
+		.contents-view-container {
+			width: 100%;
+			max-height: 320px;
+			.tab-box {
+				margin: 0;
+			}
+			.slick-custom {
+				button {
+					&.slick-prev {
+						left: 2px;
+					}
+					&.slick-next {
+						right: 20px;
+					}
+				}
+			}
+			.works-link-area {
+				width: 100%;
+				max-height: 330px;
+			}
+		}
+	}
+}
+/*---------------- slick設定：END ----------------*/
