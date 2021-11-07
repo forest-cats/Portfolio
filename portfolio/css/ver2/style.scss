@@ -1,7 +1,12 @@
 // 画面読み込み時にtransitionのアニメーションを動作させないおまじない
-.preload{
-	transition:0 !important;
-	}
+.preload *{
+	-webkit-transition: none !important;
+	-moz-transition: none !important;
+	-ms-transition: none !important;
+	-o-transition: none !important;
+	transition: none !important;
+}
+
 /*---------------- あとで消す：ここから ----------------*/
 // body {
 // 	border: 1px solid #ffffff;
@@ -226,9 +231,9 @@ section {
 		margin-top: 200px;
 	}
 	.section__title {
-		font-size: 3em;
-		padding: 10px;
-		margin: 0 auto;
+		font-size: 4em;
+		padding: 10px 0 5px;
+		margin: 120px auto 0;
 	}
 }
 
@@ -236,13 +241,12 @@ section {
 .section__contents {
 	display: flex;
 	justify-content: center;
+	margin: 80px auto;
 	dl {
 		margin-top: 40px;
-		margin-bottom: 80px;
 		width: 28%;
-		margin: 60px 60px 70px 0;
-		&:last-child {
-			margin-right: 0;
+		&:not(:last-child) {
+			margin-right: 60px;
 		}
 		.section__contents-title {
 			font-size: 2.5em;
@@ -265,6 +269,54 @@ section {
 			}
 			ul {
 				min-height: 50px;
+			}
+		}
+	}
+	&.section_contents_works {
+		margin-bottom: 0;
+	}
+}
+
+
+.section__contents-view {
+	border: 1px solid $wine;
+	color: $silver;
+	margin: 10px auto 0;
+	padding: 25px;
+	width: 80%;
+	// height: 400px;
+	.contents-view-wrap {
+		.contents-view-detail {
+			border: 1px solid $wine;
+		}
+	}
+	.slick01 {
+		button {
+			background-color: $silver;
+			border-radius: 50%;
+			&.slick-prev {
+				left: 20px;
+				z-index: 2;
+				color: black;
+			}
+			&.slick-next {
+				right: 20px;
+				z-index: 2;
+				color: black;
+			}
+		}
+		li {
+			img {
+				margin: 0 auto;
+				width: 100%;
+				height: auto;
+			}
+		}
+		.slick-dots {
+			bottom: -30px;
+			button {
+				width: 10px;
+				height: 10px;
 			}
 		}
 	}
@@ -347,22 +399,25 @@ footer {
 
 // -------- PC：レスポンシブ --------
 @media all and (min-width: 1024px)	{
-	header {
-		nav {
-			display: none;
-		}
+	.header__nav-small {
+		display: none;
 	}
 	// TOPへ戻る（タブレット・スマホのみ）
 	.btn-top {
 		display: none;
 	}
-}
 
-@media all and (max-width: 1024px)	{//後で消す
-	header {
-		background: #302833;//後で消す
+	// Works
+	.contents-view-wrap {
+		.contents-view-detail {
+
+			.slick01 {
+				max-width: 1000px;
+			}
+		}
 	}
 }
+
 // -------- タブレット縦長＆スマホ：レスポンシブ --------
 
 @media all and (max-width: 1024px)	{
@@ -371,7 +426,7 @@ footer {
 		.header__site-name	{
 			margin: 10px auto 0;
 			h1 {
-				font-size: 3em;
+				font-size: 4em;
 			}
 		}
 		.header__nav {
@@ -392,17 +447,17 @@ footer {
 				right:0;
 				margin: 0 auto;
 				width: 60%;
-				height: 2px;
-				background-color: $silver;
+				height: 3px;
+				background-color: $black;
 				border-radius: 4px;
 				&:nth-of-type(1) {
-					top: 10px;
+					top: 15px;
 				}
 				&:nth-of-type(2) {
-					top: 18px;
+					top: 28px;
 				}
 				&:nth-of-type(3) {
-					bottom: 10px;
+					bottom: 15px;
 				}
 			}
 		}
@@ -416,12 +471,12 @@ footer {
 			top: 20px;
 			right: 20px;
 			z-index: 2;
-			width: 40px;
-			height: 40px;
+			width: 60px;
+			height: 60px;
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			background: $black;
+			background: $wine;
 			border: 1px solid $wine;
 		}
 		#nav-hamburger.active {
@@ -431,17 +486,16 @@ footer {
 		#nav-hamburger.active span:nth-of-type(1),
 		#nav-hamburger.active span:nth-of-type(3) {
 			width: 15px;
-			left: -48px;
+			left: -42px;
 		}
 		#nav-hamburger.active span:nth-of-type(1) {
-			-webkit-transform: translate(31px,13px) rotate(-45deg);
-			transform: translate(31px,13px) rotate(-45deg);
+			-webkit-transform: translate(32px,8px) rotate(45deg);
+			transform: translate(32px,8px) rotate(45deg);
 		}
 		#nav-hamburger.active span:nth-of-type(3) {
-			-webkit-transform: translate(31px,-13px) rotate(45deg);
-			transform: translate(31px,-13px) rotate(45deg);
+			-webkit-transform: translate(32px,-8px) rotate(-45deg);
+			transform: translate(32px,-8px) rotate(-45deg);
 		}
-
 
 		.nav-inner {
 			background: $black;
@@ -450,7 +504,7 @@ footer {
 			top: 0;
 			right: 0;
 			z-index: 1;
-			width: 90%;
+			width: 60%;
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -493,16 +547,6 @@ footer {
 		}
 	}
 
-
-
-
-
-
-
-
-
-
-
 	// About・Skill・Works
 	section {
 		&:first-of-type {
@@ -525,6 +569,23 @@ footer {
 					ul li {
 						text-align: center;
 					}
+				}
+			.section__contents-title {
+				font-size: 2em;
+			}
+			}
+		}
+	}
+
+
+	// Works
+	.section__contents-view {
+		width: 95%;
+		padding: 15px;
+		.contents-view-wrap {
+			.contents-view-detail {
+				img {
+					width: 100%;
 				}
 			}
 		}
@@ -560,18 +621,18 @@ footer {
 	// TOPへ戻るボタン
 	.btn-top {
 		border-radius: 50%;
-		border: 1px solid $wine;
-		background: $black;
-		color: $silver;
+		border: 1px solid $silver;
+		background: $silver;
+		color: $black;
 		font-family: $font-ja;
-		width: 70px;
-		height: 70px;
-		line-height: 70px;
+		width: 60px;
+		height: 60px;
+		line-height: 60px;
 		text-align: center;
 
 		position: fixed;
 		bottom: 20px;
-		right: 10px;
+		right: 20px;
 		z-index: 99;
 		a {
 			display: block;
@@ -587,10 +648,10 @@ footer {
 			-webkit-transform: rotate(-45deg) translateX(-50%);
 			-ms-transform: rotate(-45deg) translateX(-50%);
 			transform: rotate(-45deg) translateX(-50%);
-			top: 6px;
-			left: 46%;
-			border-top: 1px solid $silver;
-			border-right: 1px solid $silver;
+			top: 8px;
+			left: 48%;
+			border-top: 2px solid $wine;
+			border-right: 2px solid $wine;
 		}
 	}
 
@@ -609,18 +670,65 @@ footer {
 		padding: 0;
 		.header__site-name	{
 			h1 {
-				font-size: 2em;
+				font-size: 3em;
 			}
+		}
+	}
+	nav {
+		.btn-trigger {
+		span {
+			position: absolute;
+			left: 0;
+			right:0;
+			margin: 0 auto;
+			width: 60%;
+			height: 2px;
+			border-radius: 4px;
+			&:nth-of-type(1) {
+				top: 10px;
+			}
+			&:nth-of-type(2) {
+				top: 18px;
+			}
+			&:nth-of-type(3) {
+				bottom: 10px;
+			}
+		}
+	}
+		.nav-hamburger {
+			top: 20px;
+			right: 10px;
+			width: 40px;
+			height: 40px;
+			span {
+				height: 2px;
+			}
+		}
+		#nav-hamburger.active span:nth-of-type(1),
+		#nav-hamburger.active span:nth-of-type(3) {
+			width: 15px;
+			left: -48px;
+		}
+		#nav-hamburger.active span:nth-of-type(1) {
+			-webkit-transform: translate(31px,13px) rotate(-45deg);
+			transform: translate(31px,13px) rotate(-45deg);
+		}
+		#nav-hamburger.active span:nth-of-type(3) {
+			-webkit-transform: translate(31px,-13px) rotate(45deg);
+			transform: translate(31px,-13px) rotate(45deg);
+		}
+		.nav-inner {
+			width: 90%;
 		}
 	}
 	// About・Skill・Works
 	section {
 		&:first-of-type {
-			margin-top: 60px;
+			margin-top: 70px;
 		}
 		.section__title {
-			font-size: 2em;
-			padding: 5px;
+			font-size: 2.5em;
+			padding: 5px 0 0;
 			margin: 0 auto;
 		}
 		.section__contents-form {
@@ -630,23 +738,24 @@ footer {
 		}
 	}
 
+	// Works
+	.section__contents-view {
+		width: 95%;
+		padding: 10px;
+	}
+
 	// TOPへ戻る
 	.btn-top {
-		width: 60px;
-		height: 60px;
-		line-height: 60px;
+		width: 50px;
+		height: 50px;
+		line-height: 55px;
+		right: 10px;
+		&::before {
+			top: 6px;
+		}
 	}
 }
 /*---------------- レスポンシブ ：END ----------------*/
-
-
-
-
-
-
-
-
-
 
 
 
@@ -783,4 +892,164 @@ footer {
 // works
 .img-works__history {@include img-style("../../img/ver2/works/work.jpg");}
 .img-works__portfolio {@include img-style("../../img/ver2/works/portfolio.jpg");}
-.img-works__school {@include img-style("../../img/ver2/works/school.jpg");}
+.img-works__school {@include img-style("../../img/ver2/works/school/school.jpg");}
+
+.section__contents-view2 {
+	border: 1px solid $wine;
+	color: $silver;
+	margin: 10px auto 0;
+	padding: 25px;
+	width: 80%;
+	.contents-view-container-tab {
+		margin: 0 auto;
+		max-width: 1000px;
+		.tab-nav {
+			height: 60px;
+			width: 140px;
+			border: 1px solid $silver;
+			border-bottom: 2px solid $silver;
+			line-height: 16px;
+			text-align: center;
+			font-size: 20px;
+			float: left;
+			cursor: pointer;
+			padding: 8px 0;
+			&.selected {
+				background-color: $silver;
+				color: $black;
+				border-bottom: 2px solid $wine;
+			}
+			.font-en {
+				font-family: $font-en;
+				letter-spacing: 2px;
+			}
+			.font-ja {
+				font-size: 0.8em;
+				font-family: $font-ja;
+			}
+		}
+	}
+	.contents-view-container {
+		margin: 0 auto;
+		position: relative;
+		max-width: 1000px;
+		height: 600px;
+		overflow: hidden;
+		clear: left;
+		border: 1px solid $silver;
+
+		.tab-box {
+			display: inline-block;
+			white-space: nowrap;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			cursor: pointer;
+		}
+
+		@mixin tab-view-position($top, $left) {
+			top: $top;
+			left: $left;
+		}
+		#contents-view-first {@include tab-view-position(0px, 0px);}
+		#contents-view-second {@include tab-view-position(0px, 1000px);}
+		#contents-view-third {@include tab-view-position(0px, 2000px);}
+
+		#contents-view-slide {
+			transition: transform 1s ease-in-out 0s;
+			-moz-transition: -moz-transform 1s ease-in-out 0s;
+			-webkit-transition: -webkit-transform 1s ease-in-out 0s;
+		}
+		@mixin tab-view-translateX($width) {
+			transform: translateX($width);
+			-moz-transform: translateX($width);
+			-webkit-transform: translateX($width);
+		}
+		.move-to-first {@include tab-view-translateX(0px);}
+		.move-to-second {@include tab-view-translateX(-1000px);}
+		.move-to-third {@include tab-view-translateX(-2000px);}
+
+		.slick-custom {
+			button {
+				&.slick-prev {
+					left: 20px;
+					z-index: 2;
+					&::before {
+						color: $wine;
+					}
+				}
+				&.slick-next {
+					right: 20px;
+					z-index: 2;
+					&::before {
+						color: $wine;
+					}
+				}
+			}
+			li {
+				img {
+					margin: 0 auto;
+					max-width: 100%;
+					height: auto;
+				}
+			}
+			.slick-dots {
+				bottom: -30px;
+				button::before {
+					width: 10px;
+					height: 10px;
+					color: $silver;
+				}
+			}
+		}
+	}
+}
+
+
+// -------- タブレット縦長＆スマホ：レスポンシブ --------
+
+@media all and (max-width: 1024px)	{
+	// Works
+	.section__contents-view2 {
+		width: 95%;
+	}
+}
+
+// -------- スマホのみ：レスポンシブ	--------
+@media all and (max-width: 480px) {
+
+	.section__contents-view2 {
+		border: none;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		.contents-view-container-tab {
+			.tab-nav {
+				width: 100px;
+				.font-en {
+					font-size: 0.8em;
+				}
+				.font-ja {
+					font-size: 0.6em;
+				}
+			}
+		}
+		.contents-view-container {
+			width: 100%;
+			max-height: 330px;
+			.tab-box {
+				margin: 15px 0;
+			}
+			.slick-custom {
+				button {
+					&.slick-prev {
+						left: 2px;
+					}
+					&.slick-next {
+						right: 2px;
+					}
+				}
+			}
+		}
+	}
+}

@@ -31,7 +31,7 @@ $(function(){
 				if (now > 0) {
 					if (window.matchMedia('(min-width: 1024px)').matches) {
 						// PC表示の時の処理
-						console.log('海賊王におれはなる！');
+						// console.log('テスト');
 					} else {
 						// スマホ表示の時の処理
 						// 下にスクロールされた時
@@ -80,8 +80,111 @@ $(function(){
 
 });
 
+// more：ボタン
+// $(function () {
+//     $('#btn-more').prevAll().hide();
+//     $('#btn-more').click(function () {
+//         if ($(this).prevAll().is(':hidden')) {
+//             $(this).prevAll().slideDown();
+//             $(this).text('close').addClass('close');
+//         } else {
+//             $(this).prevAll().slideUp();
+//             $(this).text('more').removeClass('close');
+//         }
+//     });
+// });
 
 
+// タブ
+$(function(){
+	$('#contents-view-tab1').click(function(){
+		$("#contents-view-slide").attr('class', 'move-to-first');
+		$(".tab-nav").attr('class', 'tab-nav');
+		$("#contents-view-tab1").attr('class', 'tab-nav selected');
+	});
+
+	$('#contents-view-tab2').click(function(){
+		$("#contents-view-slide").attr('class', 'move-to-second');
+		$(".tab-nav").attr('class', 'tab-nav');
+		$("#contents-view-tab2").attr('class', 'tab-nav selected');
+	});
+
+	$('#contents-view-tab3').click(function(){
+		$("#contents-view-slide").attr('class', 'move-to-third');
+		$(".tab-nav").attr('class', 'tab-nav');
+		$("#contents-view-tab3").attr('class', 'tab-nav selected');
+	});
+});
+
+// slick
+$(function(){
+	$('.slick-custom').slick({
+		// lazyLoad: 'ondemand',// or 'progressive'
+		autoplay: false,  // オートプレイ
+		dots: true,
+		arrows: true
+	});
+});
+
+// $(function(){
+// 	$('#tab1').click(function(){
+// 		$("#slide").attr('class', 'move-to-first');
+// 		$(".tab").attr('class', 'tab');
+// 		$("#tab1").attr('class', 'tab selected');
+// 	});
+// });
+
+// $(function(){
+// 	$('#tab2').click(function(){
+// 		$("#slide").attr('class', 'move-to-second');
+// 		$(".tab").attr('class', 'tab');
+// 		$("#tab2").attr('class', 'tab selected');
+// 	});
+// });
+
+// $(function(){
+// 	$('#tab3').click(function(){
+// 		$("#slide").attr('class', 'move-to-third');
+// 		$(".tab").attr('class', 'tab');
+// 		$("#tab3").attr('class', 'tab selected');
+// 	});
+// });
+
+// $(function(){
+// 	$('#tab4').click(function(){
+// 		$("#slide").attr('class', 'move-to-four');
+// 		$(".tab").attr('class', 'tab');
+// 		$("#tab4").attr('class', 'tab selected');
+// 	});
+// });
+// $("#tab1").click(moveToFirst);
+// $("#tab2").click(moveToSecond);
+// $("#tab3").click(moveToThird);
+// $("#tab4").click(moveToFour);
+
+// $function(){ moveToFirst() {
+//     $("#slide").attr('class', 'move-to-first');
+//     $(".tab").attr('class', 'tab');
+//     $("#tab1").attr('class', 'tab selected');
+// }};
+
+// $function(){ moveToSecond() {
+//     $("#slide").attr('class', 'move-to-second');
+//     $(".tab").attr('class', 'tab');
+//     $("#tab2").attr('class', 'tab selected');
+// }};
+
+// $function(){ moveToThird() {
+// 	$("#slide").attr('class', 'move-to-third');
+//     $(".tab").attr('class', 'tab');
+//     $("#tab3").attr('class', 'tab selected');
+// }};
+
+// $function(){ moveToFour() {
+// 	$("#slide").attr('class', 'move-to-four');
+//     $(".tab").attr('class', 'tab');
+//     $("#tab4").attr('class', 'tab selected');
+// }};
 
 
 
@@ -118,16 +221,19 @@ $(function(){
 $(function(){
 	// #で始まるa要素をクリックした場合に処理
 	$('a[href^="#"]').click(function(){
+
+		if(window.matchMedia('(max-width: 480px)').matches) { // スマホ
+			var adjust = -40;  // 位置調整
+		} else if(window.matchMedia('(max-width: 1024px)').matches) { // タブレット縦長＆スマホ
+			var adjust = -60;  // 位置調整
+		} else {
 		var adjust = -150;  // 位置調整
+		};
 		var speed = 800; //速度
-		// アンカーの値取得 リンク先（href）を取得して、hrefという変数に代入
-		var href= $(this).attr("href");
-		// 移動先を取得 リンク先(href）のidがある要素を探して、targetに代入
-		var target = $(href == "#" || href == "" ? 'html' : href);
-		// 移動先を調整 idの要素の位置をoffset()で取得して、positionに代入
-		var position = target.offset().top + adjust;
-		// スムーススクロール linear（等速） or swing（変速）
-		$('body,html').animate({scrollTop:position}, speed, 'swing');
+		var href= $(this).attr("href"); // アンカーの値取得 リンク先（href）を取得
+		var target = $(href == "#" || href == "" ? 'html' : href); // 移動先を取得 リンク先(href）のidがある要素を探す
+		var position = target.offset().top + adjust; // 移動先を調整 idの要素の位置をoffset()で取得
+		$('body,html').animate({scrollTop:position}, speed, 'swing'); //スムーススクロール linear（等速） or swing（変速）
 		return false;
 	});
 });
@@ -139,4 +245,3 @@ $(function () {
 		$('body').removeClass('preload');
 	});
 });
-
