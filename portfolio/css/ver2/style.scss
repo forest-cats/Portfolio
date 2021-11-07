@@ -340,6 +340,7 @@ section {
 		.btn-contact {
 			width: 100px;
 			margin: 0 auto;
+			padding: 8px 0;
 			display: block;
 		}
 	}
@@ -935,8 +936,13 @@ section {
 	// 送信ボタン
 	.form-style__submit {
 		.btn-contact {
-			border: 1px solid $red;
+			// border: 1px solid $red;
+			border-radius: 5px;
 			text-align: center;
+			color: $black;
+			background-color: $silver;
+			font-family: $font-ja;
+			letter-spacing: 4px;
 		}
 	}
 }
