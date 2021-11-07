@@ -410,7 +410,9 @@ footer ul li {
   .section__contents-title,
   .section__contents-title span:nth-of-type(1),
   .section__contents-title span:nth-of-type(1),
-  .text-details .ani-rotate {
+  .text-details .ani-rotate,
+  .img-about-wrap,
+  .img-wrap {
     -webkit-transition: 2s;
     transition: 2s;
   }
@@ -429,6 +431,13 @@ footer ul li {
     transition: 1s;
   }
   .section__contents dl:hover .section__contents-title span:nth-of-type(1) {
+    -webkit-transition: 1s;
+    transition: 1s;
+  }
+  .section__contents dl:hover .img-about-wrap,
+  .section__contents dl:hover .img-wrap {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
     -webkit-transition: 1s;
     transition: 1s;
   }
@@ -624,6 +633,9 @@ footer ul li {
   section .section__contents {
     display: block;
   }
+  section .section__contents .section__contents-title span {
+    color: #FF0000;
+  }
   section .section__contents dl {
     margin: 20px auto;
     width: 100%;
@@ -776,7 +788,7 @@ footer ul li {
   section .section__contents-form {
     width: 95%;
     border-radius: 10px;
-    padding: 20px 5px;
+    padding: 20px 10px;
   }
   .btn-top {
     width: 50px;
@@ -915,67 +927,267 @@ footer .copyright {
 
 /*---------------- カラー＆詳細設定：END ----------------*/
 /*---------------- 画像 ----------------*/
-.img-about__me {
+.img-about-wrap {
+  position: relative;
+  overflow: hidden;
+  min-width: 360px;
+  height: 360px;
+}
+
+.img-about-wrap .img-about__me {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 1;
+  height: 100%;
+  text-decoration: none;
+  text-indent: -9999px;
+}
+
+.img-about-wrap .img-about__me::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
   background: url("../../img/ver2/about/me.jpg") no-repeat center center;
-  background-size: contain;
-  width: 200px;
+  background-size: cover;
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+  -webkit-box-shadow: inset 0 0 15px 15px #000000;
+          box-shadow: inset 0 0 15px 15px #000000;
+}
+
+@media all and (max-width: 1024px) {
+  .img-about-wrap {
+    width: 360px;
+    right: 0;
+    left: 0;
+    margin: auto;
+  }
+  .img-wrap {
+    width: 60%;
+    right: 0;
+    left: 0;
+    margin: auto;
+  }
+}
+
+.img-wrap {
+  position: relative;
+  overflow: hidden;
+  min-width: 200px;
   height: 200px;
-  margin: 0 auto;
+}
+
+.img-wrap .img-skill__work {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 1;
+  height: 100%;
+  text-decoration: none;
   text-indent: -9999px;
 }
 
-.img-skill__lang {
-  background: url("../../img/ver2/skill/lang.jpg") no-repeat center center;
-  background-size: contain;
-  width: 200px;
-  height: 200px;
-  margin: 0 auto;
+.img-wrap .img-skill__work::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background: url("../../img/ver2/skill/work.jpg") no-repeat center center;
+  background-size: cover;
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+  -webkit-box-shadow: inset 0 0 15px 15px #000000;
+          box-shadow: inset 0 0 15px 15px #000000;
+}
+
+.img-wrap .img-skill__study {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 1;
+  height: 100%;
+  text-decoration: none;
   text-indent: -9999px;
 }
 
-.img-skill__study {
+.img-wrap .img-skill__study::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
   background: url("../../img/ver2/skill/study.jpg") no-repeat center center;
-  background-size: contain;
-  width: 200px;
-  height: 200px;
-  margin: 0 auto;
+  background-size: cover;
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+  -webkit-box-shadow: inset 0 0 15px 15px #000000;
+          box-shadow: inset 0 0 15px 15px #000000;
+}
+
+.img-wrap .img-skill__school {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 1;
+  height: 100%;
+  text-decoration: none;
   text-indent: -9999px;
 }
 
-.img-skill__school {
+.img-wrap .img-skill__school::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
   background: url("../../img/ver2/skill/school.jpg") no-repeat center center;
-  background-size: contain;
-  width: 200px;
-  height: 200px;
-  margin: 0 auto;
+  background-size: cover;
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+  -webkit-box-shadow: inset 0 0 15px 15px #000000;
+          box-shadow: inset 0 0 15px 15px #000000;
+}
+
+.img-wrap .img-works__history {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 1;
+  height: 100%;
+  text-decoration: none;
   text-indent: -9999px;
 }
 
-.img-works__history {
+.img-wrap .img-works__history::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
   background: url("../../img/ver2/works/history/history.jpg") no-repeat center center;
-  background-size: contain;
-  width: 200px;
-  height: 200px;
-  margin: 0 auto;
+  background-size: cover;
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+  -webkit-box-shadow: inset 0 0 15px 15px #000000;
+          box-shadow: inset 0 0 15px 15px #000000;
+}
+
+.img-wrap .img-works__work {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 1;
+  height: 100%;
+  text-decoration: none;
   text-indent: -9999px;
 }
 
-.img-works__work {
+.img-wrap .img-works__work::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
   background: url("../../img/ver2/works/work/work.jpg") no-repeat center center;
-  background-size: contain;
-  width: 200px;
-  height: 200px;
-  margin: 0 auto;
+  background-size: cover;
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+  -webkit-box-shadow: inset 0 0 15px 15px #000000;
+          box-shadow: inset 0 0 15px 15px #000000;
+}
+
+.img-wrap .img-works__school {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 1;
+  height: 100%;
+  text-decoration: none;
   text-indent: -9999px;
 }
 
-.img-works__school {
+.img-wrap .img-works__school::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
   background: url("../../img/ver2/works/school/school.jpg") no-repeat center center;
-  background-size: contain;
-  width: 200px;
-  height: 200px;
-  margin: 0 auto;
-  text-indent: -9999px;
+  background-size: cover;
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+  -webkit-box-shadow: inset 0 0 15px 15px #000000;
+          box-shadow: inset 0 0 15px 15px #000000;
+}
+
+@media all and (max-width: 480px) {
+  .img-about-wrap {
+    min-width: 360px;
+    height: 360px;
+  }
+  .img-wrap {
+    min-width: 100%;
+  }
 }
 
 /*---------------- slick設定 ----------------*/
