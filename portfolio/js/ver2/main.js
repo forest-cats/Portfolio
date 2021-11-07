@@ -78,119 +78,32 @@ $(function(){
 		}
 	});
 
-});
-
-// more：ボタン
-// $(function () {
-//     $('#btn-more').prevAll().hide();
-//     $('#btn-more').click(function () {
-//         if ($(this).prevAll().is(':hidden')) {
-//             $(this).prevAll().slideDown();
-//             $(this).text('close').addClass('close');
-//         } else {
-//             $(this).prevAll().slideUp();
-//             $(this).text('more').removeClass('close');
-//         }
-//     });
-// });
-
-
-// タブ
-$(function(){
+	// タブ
 	$('#contents-view-tab1').click(function(){
 		$("#contents-view-slide").attr('class', 'move-to-first');
 		$(".tab-nav").attr('class', 'tab-nav');
 		$("#contents-view-tab1").attr('class', 'tab-nav selected');
 	});
-
 	$('#contents-view-tab2').click(function(){
 		$("#contents-view-slide").attr('class', 'move-to-second');
 		$(".tab-nav").attr('class', 'tab-nav');
 		$("#contents-view-tab2").attr('class', 'tab-nav selected');
 	});
-
 	$('#contents-view-tab3').click(function(){
 		$("#contents-view-slide").attr('class', 'move-to-third');
 		$(".tab-nav").attr('class', 'tab-nav');
 		$("#contents-view-tab3").attr('class', 'tab-nav selected');
 	});
-});
 
-// slick
-$(function(){
+	// slick
 	$('.slick-custom').slick({
-		// lazyLoad: 'ondemand',// or 'progressive'
+		lazyLoad: 'ondemand',// or 'progressive'
 		autoplay: false,  // オートプレイ
 		dots: true,
 		arrows: true
 	});
-});
 
-// $(function(){
-// 	$('#tab1').click(function(){
-// 		$("#slide").attr('class', 'move-to-first');
-// 		$(".tab").attr('class', 'tab');
-// 		$("#tab1").attr('class', 'tab selected');
-// 	});
-// });
-
-// $(function(){
-// 	$('#tab2').click(function(){
-// 		$("#slide").attr('class', 'move-to-second');
-// 		$(".tab").attr('class', 'tab');
-// 		$("#tab2").attr('class', 'tab selected');
-// 	});
-// });
-
-// $(function(){
-// 	$('#tab3').click(function(){
-// 		$("#slide").attr('class', 'move-to-third');
-// 		$(".tab").attr('class', 'tab');
-// 		$("#tab3").attr('class', 'tab selected');
-// 	});
-// });
-
-// $(function(){
-// 	$('#tab4').click(function(){
-// 		$("#slide").attr('class', 'move-to-four');
-// 		$(".tab").attr('class', 'tab');
-// 		$("#tab4").attr('class', 'tab selected');
-// 	});
-// });
-// $("#tab1").click(moveToFirst);
-// $("#tab2").click(moveToSecond);
-// $("#tab3").click(moveToThird);
-// $("#tab4").click(moveToFour);
-
-// $function(){ moveToFirst() {
-//     $("#slide").attr('class', 'move-to-first');
-//     $(".tab").attr('class', 'tab');
-//     $("#tab1").attr('class', 'tab selected');
-// }};
-
-// $function(){ moveToSecond() {
-//     $("#slide").attr('class', 'move-to-second');
-//     $(".tab").attr('class', 'tab');
-//     $("#tab2").attr('class', 'tab selected');
-// }};
-
-// $function(){ moveToThird() {
-// 	$("#slide").attr('class', 'move-to-third');
-//     $(".tab").attr('class', 'tab');
-//     $("#tab3").attr('class', 'tab selected');
-// }};
-
-// $function(){ moveToFour() {
-// 	$("#slide").attr('class', 'move-to-four');
-//     $(".tab").attr('class', 'tab');
-//     $("#tab4").attr('class', 'tab selected');
-// }};
-
-
-
-
-// TOPへ戻る
-$(function(){
+	// TOPへ戻る
 	$('#btn-top').hide();
 	// スクロールイベントの設定
 	$( window ).scroll( function(){
@@ -203,7 +116,7 @@ $(function(){
 				var visible = element.is( ':visible' );//現在表示されているか否か
 				var now = $( window ).scrollTop();//最上部から現在位置の距離を取得
 				var under = $( 'body' ).height() - ( now + $(window).height() );//最下部から現在位置の距離
-				if( now > 100 && 100 < under ){// 最上部から現在位置まで > 最下部から現在位置まで
+				if( now > 10 && 100 < under ){// 最上部から現在位置まで > 最下部から現在位置まで
 					if( !visible ){ //非表示だったら
 						element.fadeIn();
 					}
@@ -215,13 +128,10 @@ $(function(){
 			});
 		}
 	});
-});
 
-//アンカーリンク：スムーススクロール
-$(function(){
+	//アンカーリンク：スムーススクロール
 	// #で始まるa要素をクリックした場合に処理
 	$('a[href^="#"]').click(function(){
-
 		if(window.matchMedia('(max-width: 480px)').matches) { // スマホ
 			var adjust = -40;  // 位置調整
 		} else if(window.matchMedia('(max-width: 1024px)').matches) { // タブレット縦長＆スマホ
@@ -236,12 +146,12 @@ $(function(){
 		$('body,html').animate({scrollTop:position}, speed, 'swing'); //スムーススクロール linear（等速） or swing（変速）
 		return false;
 	});
-});
 
-
-// 画面読み込み時にtransitionのアニメーションを動作させないおまじない
-$(function () {
+	// 画面読み込み時にtransitionのアニメーションを動作させないおまじない
 	$(window).on('load',function(){
 		$('body').removeClass('preload');
 	});
 });
+
+
+

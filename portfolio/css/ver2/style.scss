@@ -228,12 +228,27 @@ header {
 
 section {
 	&:first-of-type {
-		margin-top: 200px;
+		margin-top: 180px;
 	}
 	.section__title {
 		font-size: 4em;
 		padding: 10px 0 5px;
 		margin: 120px auto 0;
+	}
+
+	//Works
+	.section__title-works {
+		font-size: 3em;
+		padding: 10px 0 5px;
+		margin: 80px auto 40px;
+	}
+	h3.section__contents-title {
+		font-family: $font-en;
+		text-align: center;
+		font-size: 2.5em;
+		padding: 10px 10px 5px;
+		letter-spacing: 2px;
+		margin-bottom: 10px;
 	}
 }
 
@@ -249,15 +264,22 @@ section {
 			margin-right: 60px;
 		}
 		.section__contents-title {
+			// border-bottom: 1px solid $silver;
 			font-size: 2.5em;
 			padding: 10px 10px 5px;
 			letter-spacing: 2px;
 		}
 		.section__contents-details {
 			padding: 10px;
-			.text-details {
+			.sub-title {
+				font-size: 1.2em;
 				text-align: center;
-				margin-bottom: 10px;
+				margin: 10px 0;
+			}
+			.text-details {
+				li {
+					margin-bottom: 10px;
+				}
 			}
 			.btn-more {
 				margin-top: 20px;
@@ -274,51 +296,6 @@ section {
 	}
 	&.section_contents_works {
 		margin-bottom: 0;
-	}
-}
-
-
-.section__contents-view {
-	border: 1px solid $wine;
-	color: $silver;
-	margin: 10px auto 0;
-	padding: 25px;
-	width: 80%;
-	// height: 400px;
-	.contents-view-wrap {
-		.contents-view-detail {
-			border: 1px solid $wine;
-		}
-	}
-	.slick01 {
-		button {
-			background-color: $silver;
-			border-radius: 50%;
-			&.slick-prev {
-				left: 20px;
-				z-index: 2;
-				color: black;
-			}
-			&.slick-next {
-				right: 20px;
-				z-index: 2;
-				color: black;
-			}
-		}
-		li {
-			img {
-				margin: 0 auto;
-				width: 100%;
-				height: auto;
-			}
-		}
-		.slick-dots {
-			bottom: -30px;
-			button {
-				width: 10px;
-				height: 10px;
-			}
-		}
 	}
 }
 
@@ -407,12 +384,101 @@ footer {
 		display: none;
 	}
 
-	// Works
-	.contents-view-wrap {
-		.contents-view-detail {
+	.section__contents-details {
+		.text-details-wrap {
+			border: 1px solid $black;
+			padding: 10px;
+			position: relative;
+			outline: none;
+			transition: all .2s;
+			// マウスホバー
+			&::before,
+			&::after,
+			& span::before,
+			& span::after {
+				position: absolute;
+				z-index: 2;
+				content: '';
+				width: 0;
+				height: 0;
+				border: 1px solid transparent;
+				transition: all .3s;
+				visibility: hidden;
+				box-sizing: content-box;
+			}
+			&::before {
+				top: -1px;
+				left: -1px;
+				border-left-color: $red;
+			}
+			&::after {
+				bottom: -1px;
+				right: -1px;
+				border-right-color: $red;
+			}
+			& span::before {
+				bottom: -1px;
+				left: -1px;
+				border-bottom-color: $red;
+			}
+			& span::after {
+				top: -1px;
+				right: -1px;
+				border-top-color: $red;
+			}
+		}
+	}
+	.section__contents-title,
+	.section__contents-title span:nth-of-type(1),
+	.section__contents-title span:nth-of-type(1),
+	.text-details .ani-rotate {
+		transition: 2s;
+	}
+	.section__contents dl:hover  {
+		transition: 1s;
+		.section__contents-title {
+				letter-spacing: 5px;
+				transition: 1s;
+				span:nth-of-type(1) {
+					color: $red;
+					transition: 1s;
+				}
+				span:nth-of-type(1) {
+					// color: $wine;
+					transition: 1s;
+				}
+		}
+		.text-details-wrap {
+			&::before,
+			&::after {
+				height: 100%;
+				visibility: visible;
+			}
+			& span::before,
+			& span::after {
+				width: 100%;
+				visibility: visible;
+			}
+		}
 
-			.slick01 {
-				max-width: 1000px;
+		.text-details {
+			transition:  2s;
+			.ani-rotate {
+				transition:  2s;
+				color: $wine;
+				display: inline-block;
+				-webkit-transform: rotateY(360deg);
+				transform: rotateY(360deg);
+			}
+		}
+
+		.btn-more {
+			letter-spacing: 2px;
+			transition: 1s;
+			background-color: $wine;
+			span {
+				color: $black;
+				transition: 1s;
 			}
 		}
 	}
@@ -557,6 +623,14 @@ footer {
 			padding: 8px;
 			margin: 0 auto;
 		}
+		.section__title-works {
+			font-size: 2.5em;
+			padding: 6px;
+			margin: 0 auto 20px;
+		}
+		h3.section__contents-title {
+			font-size: 2em;
+		}
 		.section__contents {
 			display: block;
 			dl {
@@ -566,26 +640,18 @@ footer {
 					margin: 0 auto 40px;
 				}
 				.section__contents-details {
-					ul li {
-						text-align: center;
+					.text-details-wrap {
+						border: 1px solid $wine;
+						padding: 10px;
+						width: 60%;
+						margin: 0 auto;
+						ul li {
+							text-align: center;
+						}
 					}
 				}
-			.section__contents-title {
-				font-size: 2em;
-			}
-			}
-		}
-	}
-
-
-	// Works
-	.section__contents-view {
-		width: 95%;
-		padding: 15px;
-		.contents-view-wrap {
-			.contents-view-detail {
-				img {
-					width: 100%;
+				.section__contents-title {
+					font-size: 2em;
 				}
 			}
 		}
@@ -731,17 +797,28 @@ footer {
 			padding: 5px 0 0;
 			margin: 0 auto;
 		}
+		.section__title-works {
+			font-size: 2em;
+			padding: 5px 0 0;
+			margin: 0 auto 10px;
+		}
+		h3.section__contents-title {
+			font-size: 1.5em;
+		}
+		.section__contents {
+			dl {
+				.section__contents-details {
+					.text-details-wrap {
+						width: 90%;
+					}
+				}
+			}
+		}
 		.section__contents-form {
 			width: 95%;
 			border-radius: 10px;
 			padding: 20px 5px;
 		}
-	}
-
-	// Works
-	.section__contents-view {
-		width: 95%;
-		padding: 10px;
 	}
 
 	// TOPへ戻る
@@ -781,25 +858,32 @@ header {
 
 // About・Skill・Works
 section {
-	.section__title {
+	.section__title,
+	.section__title-works {
 		color: $wine;
 		border-top: 1px solid $wine;
 		border-bottom: 1px solid $wine;
 		font-family: $font-en;
 		text-align: center;
 	}
+
+	h3.section__contents-title {
+		color: $silver;
+		font-family: $font-en;
+		text-align: center;
+	}
 	dl {
-		.section__contents-title {
-			color: $wine;
+		.section__contents-title{
+			color: $silver;
 			font-family: $font-en;
 			text-align: center;
 		}
 		.section__contents-details {
 			color: $silver;
 			font-family: $font-ja;
-			.text-details {
+			.sub-title {
 				font-family: $font-ja;
-				color: $silver;
+				color: $wine;
 			}
 			ul li {
 				font-family: $font-ja;
@@ -870,7 +954,7 @@ footer {
 	width: 120px;
 	height: 40px;
 	line-height: 40px;
-	// padding: 5px 20px;
+	transition: 1s;
 }
 /*---------------- カラー＆詳細設定：END ----------------*/
 
@@ -890,14 +974,16 @@ footer {
 .img-skill__study {@include img-style("../../img/ver2/skill/study.jpg");}
 .img-skill__school {@include img-style("../../img/ver2/skill/school.jpg");}
 // works
-.img-works__history {@include img-style("../../img/ver2/works/work.jpg");}
-.img-works__portfolio {@include img-style("../../img/ver2/works/portfolio.jpg");}
+.img-works__history {@include img-style("../../img/ver2/works/history/history.jpg");}
+.img-works__work {@include img-style("../../img/ver2/works/work/work.jpg");}
 .img-works__school {@include img-style("../../img/ver2/works/school/school.jpg");}
 
-.section__contents-view2 {
+
+/*---------------- slick設定 ----------------*/
+.section__contents-view {
 	border: 1px solid $wine;
 	color: $silver;
-	margin: 10px auto 0;
+	margin: 10px auto 80px;
 	padding: 25px;
 	width: 80%;
 	.contents-view-container-tab {
@@ -975,13 +1061,15 @@ footer {
 					left: 20px;
 					z-index: 2;
 					&::before {
+						font-size: 38px;
 						color: $wine;
 					}
 				}
 				&.slick-next {
-					right: 20px;
+					right: 40px;
 					z-index: 2;
 					&::before {
+						font-size: 38px;
 						color: $wine;
 					}
 				}
@@ -1002,26 +1090,45 @@ footer {
 				}
 			}
 		}
+		.works-link-area {
+			max-width: 1000px;
+			height: 600px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			.link-works-blank {
+				max-width: 200px;
+				height: auto;
+				a {
+					display: block;
+					width: 100%;
+					height: 100%;
+					img {
+						width: 100%;
+					}
+				}
+			}
+		}
 	}
 }
 
 
-// -------- タブレット縦長＆スマホ：レスポンシブ --------
+// -------- タブレット縦長＆スマホ：レスポンシブ（slick用） --------
 
 @media all and (max-width: 1024px)	{
-	// Works
-	.section__contents-view2 {
+	.section__contents-view {
 		width: 95%;
 	}
 }
 
-// -------- スマホのみ：レスポンシブ	--------
+// -------- スマホのみ：レスポンシブ（slick用）	--------
 @media all and (max-width: 480px) {
 
-	.section__contents-view2 {
+	.section__contents-view {
 		border: none;
 		width: 100%;
 		margin: 0;
+		margin-bottom: 40px;
 		padding: 0;
 		.contents-view-container-tab {
 			.tab-nav {
@@ -1036,9 +1143,9 @@ footer {
 		}
 		.contents-view-container {
 			width: 100%;
-			max-height: 330px;
+			max-height: 320px;
 			.tab-box {
-				margin: 15px 0;
+				margin: 0;
 			}
 			.slick-custom {
 				button {
@@ -1046,10 +1153,15 @@ footer {
 						left: 2px;
 					}
 					&.slick-next {
-						right: 2px;
+						right: 20px;
 					}
 				}
+			}
+			.works-link-area {
+				width: 100%;
+				max-height: 330px;
 			}
 		}
 	}
 }
+/*---------------- slick設定：END ----------------*/
